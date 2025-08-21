@@ -19,5 +19,5 @@ async function query(sql){
    return result[0];
 }
 //// Test connection, should result in 1 row from table test
-// let allPersons = await query('SELECT * FROM test')
-// console.log(allPersons)
+// let allPersons = await query('SELECT * FROM test');
+// console.log(allPersons);
