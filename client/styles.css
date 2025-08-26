@@ -1,0 +1,55 @@
+/*
+  style.css
+  This file contains styles for the People Search App web page.
+  Each section below styles a different part of the page.
+*/
+
+/* Set the default font for the whole page */
+body {
+  font-family: Verdana;
+}
+
+/* Style all images (e.g., person photos) */
+img {
+  width: 200px;      /* Set image width */
+  float: right;      /* Float images to the right of text */
+}
+
+/* Style each person's section in the results */
+section {
+  overflow: auto;                /* Clear floats inside section */
+  border-bottom: 1px solid black;/* Add a line between people */
+  margin-bottom: 20px;           /* Space below each person */
+  padding-bottom: 20px;          /* Space inside section bottom */
+}
+
+/* Style the name of each person */
+h2 {
+  color: rgb(157, 35, 35);
+}
+
+/* Style the main page heading */
+h1 {
+  color: rgb(9, 53, 74);
+}
+
+/* Optional: yellow color for special headings */
+.h2-yellow {
+  color: #cbbc1a;
+}
+
+/* Style the search input field */
+input {
+  width: 60%;
+  padding: 5px;
+}
+
+/* Style the search button */
+button {
+  padding: 5px;
+}
+
+/* Style the area where search results are shown */
+.searchResults {
+  margin-top: 20px;
+}

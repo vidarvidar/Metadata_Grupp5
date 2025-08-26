@@ -23,7 +23,7 @@ async function query(sql){
 // console.log(result)
 
 // give me a list of all files in the image folder
-let images = fs.readdirSync('Data');
+let images = fs.readdirSync('client/Data/');
 
 
 // Loop through the images and extract the metadata
@@ -31,9 +31,9 @@ for (let image of images) {
   // let metadata_list = []
   // Only for files ending with .jpg
   // slice(-4) get the last 4 letters from the image name
-  if (image.slice(-4) == '.jpg') {
+  if (image.slice(-4) == '.jpg'); {
 
-    let raw = await exifr.parse('Data/' + image);
+    let raw = await exifr.parse('client/Data/' + image);
 
     let metadata = JSON.stringify(raw);
     // Uploads row by row into database with local storage path as url

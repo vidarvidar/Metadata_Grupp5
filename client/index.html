@@ -1,0 +1,47 @@
+<!--
+  index.html
+  This is the main web page for the People Search App.
+  It lets users search for people in the database and see the results.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Files</title>
+  <!-- Link to the CSS file for styling the page -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Main heading of the page -->
+  <h1>Files</h1>
+
+  <!--
+    Search form:
+    - Lets the user type a search term (name or hobby)
+    - Calls the search() function in main.js when submitted
+    - return false prevents the page from reloading
+  -->
+  <form name="searchForm" onsubmit="search(); return false">
+    <input name="term" placeholder="Search term">
+    <button type="submit">Search</button>
+  </form>
+
+  <!--
+    Section to display search results:
+    - Results will be shown here by main.js
+    - Starts with a helpful message
+  -->
+  <article class="searchResults">
+    Search for files
+  </article>
+
+  <!--
+    Load and run the main.js JavaScript file
+    - This file contains the search() function and handles user interaction
+  -->
+  <script src="main.js"></script>
+</body>
+
