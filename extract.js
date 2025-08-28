@@ -43,6 +43,16 @@ for (let file of files) {
     let [result] = await db.execute('INSERT INTO files (fileName, url, metadata) VALUES (?,?,?)', [file, 'Data/' + file, metadata]);
     console.log(result)
   }
-}
+  if (file.slice(-4) == '.mp3') {
+    
+    let raw = await musicMetadata.parseFile('client/Data/' + file);
+    
+    let metadata = JSON.stringify(raw);
+    
+    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata) VALUES (?,?,?)', [file, 'Data/' + file, metadata]);
+    console.log(result)
+    }
+  } 
+  
+await db.end();
 
-await db.end()
