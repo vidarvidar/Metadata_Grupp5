@@ -6,6 +6,7 @@ import mysql from 'mysql2/promise';
 import 'dotenv/config';
 import PdfParse from 'pdf-parse-new';
 import musicMetadata from 'music-metadata';
+import path from 'path';
 
 // Create a connection 'db' to the database
 const db = await mysql.createConnection({
@@ -27,31 +28,51 @@ async function query(sql){
 // give me a list of all files in the image folder
 let files = fs.readdirSync('client/Data/');
 
+let empty = await query('DELETE FROM files')
+console.log(empty)
+
 
 // Loop through the images and extract the metadata
 for (let file of files) {
   // let metadata_list = []
   // Only for files ending with .jpg
   // slice(-4) get the last 4 letters from the image name
-  if (file.slice(-4) == '.jpg' || file.slice(-4) == '.png') {
+  let audio_filetype = ['.mp3', '.WAV','.aac','.ogg','.wma', '.flac', '.aiff', '.aif']
+  let image_filetype = ['.jpg','.png', '.tif']
+  
+  if (image_filetype.includes(path.parse(file).ext)) {
 
     let raw = await exifr.parse('client/Data/' + file);
 
     let metadata = JSON.stringify(raw);
-  
+    console.log(file)
     // Uploads row by row into database with local storage path as url
-    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata) VALUES (?,?,?)', [file, 'Data/' + file, metadata]);
-    console.log(result)
+    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [path.parse(file).name, path.parse(file).ext, 'Data/' + file, metadata]);
+    
   }
-  if (file.slice(-4) == '.mp3') {
+  if (audio_filetype.includes(path.parse(file).ext)) {
     
     let raw = await musicMetadata.parseFile('client/Data/' + file);
-    
+    delete raw.native;
+    delete raw.quality;
     let metadata = JSON.stringify(raw);
-    
-    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata) VALUES (?,?,?)', [file, 'Data/' + file, metadata]);
-    console.log(result)
+    console.log(file) 
+    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [path.parse(file).name, path.parse(file).ext, 'Data/' + file, metadata]);
+  
     }
+  if (path.parse(file).ext == '.pdf') {
+
+    let raw = fs.readFileSync('client/Data/' + file)
+      
+    let raw_metadata = await PdfParse(raw)
+    delete raw_metadata.text;
+
+    let metadata = JSON.stringify(raw_metadata)
+    console.log(file)
+    let result = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?, ?,?, ?)', [path.parse(file).name, path.parse(file).ext, 'Data/' + file, metadata]);
+  
+
+  }
   } 
   
 await db.end();

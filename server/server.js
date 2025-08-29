@@ -67,3 +67,19 @@ app.get('/api/files/:searchTerm', async (request, response) => {
   // Send the result as a JSON response
   response.json(result);
 });
+
+// REST API route: Search for people by name or hobby
+// When a GET request is made to /api/people/:searchTerm, search the database
+app.get('/api/files/:fileType', async (request, response) => {
+  // Get the search term from the URL and add % for SQL LIKE (partial match)
+  let searchTerm = `%${request.params.fileType}%`;
+  // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
+  let result = await query(`
+    SELECT *
+    FROM files
+    WHERE 
+      filetype = '?'
+  `, [searchTerm, searchTerm, searchTerm]);
+  // Send the result as a JSON response
+  response.json(result);
+});
