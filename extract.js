@@ -71,27 +71,17 @@ for (let file of files) {
     let metadata = JSON.stringify(raw_metadata)
     console.log(file)
     let result = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?, ?,?, ?)', [path.parse(file).name, path.parse(file).ext, 'Data/' + file, metadata]);
+    }
   
-
-  }
-  } 
-  
-    
-    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata, filetype) VALUES (?,?,?,?)', [file, 'Data/' + file, metadata, filetype]);
-    console.log(result)
-  }
-  
-  if (file.slice(-5) == '.xlsx') {
-
-    let filetype = 'xlsx';
+  if (path.parse(file).ext == '.xlsx') {
 
     let raw = await xlsx.readFile('client/Data/' + file)
 
     let metadata = JSON.stringify(raw);
-
-    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata, filetype) VALUES (?,?,?,?)', [file, 'Data/' + file, metadata, filetype]);
-    console.log(result)
+    console.log(file)
   }
+    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [path.parse(file).name, path.parse(file).ext, 'Data/' + file, metadata]);
+    
 } 
 await db.end();
 
