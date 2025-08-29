@@ -6,6 +6,7 @@ import mysql from 'mysql2/promise';
 import 'dotenv/config';
 import PdfParse from 'pdf-parse-new';
 import musicMetadata from 'music-metadata';
+import xlsx from 'xlsx';
 import path from 'path';
 
 // Create a connection 'db' to the database
@@ -75,5 +76,22 @@ for (let file of files) {
   }
   } 
   
+    
+    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata, filetype) VALUES (?,?,?,?)', [file, 'Data/' + file, metadata, filetype]);
+    console.log(result)
+  }
+  
+  if (file.slice(-5) == '.xlsx') {
+
+    let filetype = 'xlsx';
+
+    let raw = await xlsx.readFile('client/Data/' + file)
+
+    let metadata = JSON.stringify(raw);
+
+    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata, filetype) VALUES (?,?,?,?)', [file, 'Data/' + file, metadata, filetype]);
+    console.log(result)
+  }
+} 
 await db.end();
 
