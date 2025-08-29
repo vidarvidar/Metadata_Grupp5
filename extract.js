@@ -6,6 +6,7 @@ import mysql from 'mysql2/promise';
 import 'dotenv/config';
 import PdfParse from 'pdf-parse-new';
 import musicMetadata from 'music-metadata';
+import xlsx from 'xlsx';
 
 // Create a connection 'db' to the database
 const db = await mysql.createConnection({
@@ -35,24 +36,39 @@ for (let file of files) {
   // slice(-4) get the last 4 letters from the image name
   if (file.slice(-4) == '.jpg' || file.slice(-4) == '.png') {
 
+    let filetype = 'jpg';
+
     let raw = await exifr.parse('client/Data/' + file);
 
     let metadata = JSON.stringify(raw);
   
     // Uploads row by row into database with local storage path as url
-    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata) VALUES (?,?,?)', [file, 'Data/' + file, metadata]);
+    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata, filetype) VALUES (?,?,?,?)', [file, 'Data/' + file, metadata, filetype]);
     console.log(result)
   }
   if (file.slice(-4) == '.mp3') {
     
+    let filetype = 'mp3';
+
     let raw = await musicMetadata.parseFile('client/Data/' + file);
     
     let metadata = JSON.stringify(raw);
     
-    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata) VALUES (?,?,?)', [file, 'Data/' + file, metadata]);
+    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata, filetype) VALUES (?,?,?,?)', [file, 'Data/' + file, metadata, filetype]);
     console.log(result)
-    }
-  } 
+  }
   
+  if (file.slice(-5) == '.xlsx') {
+
+    let filetype = 'xlsx';
+
+    let raw = await xlsx.readFile('client/Data/' + file)
+
+    let metadata = JSON.stringify(raw);
+
+    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata, filetype) VALUES (?,?,?,?)', [file, 'Data/' + file, metadata, filetype]);
+    console.log(result)
+  }
+} 
 await db.end();
 
