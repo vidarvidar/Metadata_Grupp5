@@ -28,7 +28,7 @@ async function search() {
     <p>You searched for "${searchTerm}"...</p>
     <p>Found ${files.length} results.</p>
   `;
-  let image_filetype = ['.jpg','.png', '.tif']
+  let image_filetype = ['jpg','png', 'tif']
   // Loop through each person in the results and add their info to the HTML
   for (let file of files) {
     

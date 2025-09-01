@@ -61,25 +61,25 @@ app.get('/api/files/:searchTerm', async (request, response) => {
     FROM files
     WHERE 
       LOWER(fileName) LIKE LOWER(?) OR
-      LOWER(url) LIKE LOWER(?) OR
+      LOWER(filetype) LIKE LOWER(?) OR
       LOWER(metadata) LIKE LOWER(?)
   `, [searchTerm, searchTerm, searchTerm]);
   // Send the result as a JSON response
   response.json(result);
 });
 
-// REST API route: Search for people by name or hobby
-// When a GET request is made to /api/people/:searchTerm, search the database
-app.get('/api/files/:fileType', async (request, response) => {
-  // Get the search term from the URL and add % for SQL LIKE (partial match)
-  let searchTerm = `%${request.params.fileType}%`;
-  // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
-  let result = await query(`
-    SELECT *
-    FROM files
-    WHERE 
-      filetype = '?'
-  `, [searchTerm, searchTerm, searchTerm]);
-  // Send the result as a JSON response
-  response.json(result);
-});
+// // REST API route: Search for people by name or hobby
+// // When a GET request is made to /api/people/:searchTerm, search the database
+// app.get('/api/files/:fileType', async (request, response) => {
+//   // Get the search term from the URL and add % for SQL LIKE (partial match)
+//   let searchTerm = `%${request.params.fileType}%`;
+//   // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
+//   let result = await query(`
+//     SELECT *
+//     FROM files
+//     WHERE 
+//       filetype = (?)
+//   `, [fileType]);
+//   // Send the result as a JSON response
+//   response.json(result);
+// });
