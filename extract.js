@@ -28,9 +28,10 @@ async function query(sql){
 
 // give me a list of all files in the image folder
 let files = fs.readdirSync('client/Data/');
-
+// Empties the database before attempting insert to avoid duplicate,
+// Take this out if you wish to add to db without deleting
 let empty = await query('DELETE FROM files')
-console.log(empty)
+
 
 
 // Loop through the images and extract the metadata
