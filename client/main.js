@@ -28,18 +28,29 @@ async function search() {
     <p>You searched for "${searchTerm}"...</p>
     <p>Found ${files.length} results.</p>
   `;
-
+  let image_filetype = ['.jpg','.png', '.tif']
   // Loop through each person in the results and add their info to the HTML
   for (let file of files) {
-    html += `
-      <section>
-        <h2>Filename: ${file.fileName}</h2>
-        <img src="${file.url}">
-        <p>Metadata: ${file.metadata}</p>
-      </section>
-    `;
-  }
+    
+    if (image_filetype.includes(file.filetype)) {
 
+      html += `
+        <section>
+          <h2>Filename: ${file.fileName}${file.filetype}</h2>
+          <img src="${file.url}">
+          <p>Metadata: ${JSON.stringify(file.metadata)}</p>
+        </section>
+      `;
+    }
+    else {
+      html += `
+        <section>
+          <h2>Filename: ${file.fileName}${file.filetype}</h2>
+          <p>Metadata: ${JSON.stringify(file.metadata)}</p>
+        </section>
+      `;
+    }
+  }
   // Update the page with the new HTML showing the search results
   searchResultsElement.innerHTML = html;
 }
