@@ -6,7 +6,9 @@ import mysql from 'mysql2/promise';
 import 'dotenv/config';
 import PdfParse from 'pdf-parse-new';
 import musicMetadata from 'music-metadata';
-import xlsx from 'xlsx';
+import xlsx from 'xlsx';7
+import ffprobe from 'ffprobe';
+import ffprobeStatic from 'ffprobe-static';
 
 // Create a connection 'db' to the database
 const db = await mysql.createConnection({
@@ -69,6 +71,18 @@ for (let file of files) {
     let [result] = await db.execute('INSERT INTO files (fileName, url, metadata, filetype) VALUES (?,?,?,?)', [file, 'Data/' + file, metadata, filetype]);
     console.log(result)
   }
-} 
+  if (file.slice(-4) == '.pdf') {
+
+    let filetype = 'pdf';
+
+    let raw = await ffprobe('client/Data/' + file, { path: ffprobeStatic.path });
+
+    let metadata = JSON.stringify(raw);
+
+    let [result] = await db.execute('INSERT INTO files (fileName, url, metadata, filetype) VALUES (?,?,?,?)', [file, 'Data/' + file, metadata, filetype]);
+    console.log(result)
+    
+  }
+}  
 await db.end();
 
