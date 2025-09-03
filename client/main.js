@@ -1,5 +1,12 @@
 // This function is called when the user submits the search form
 // It searches for people in the database and displays the results
+function highlight(text, searchTerm) {
+  if (!searchTerm) return text;
+  
+  const regex = new RegExp(`(${searchTerm})`, 'gi');
+  return text.replace(regex, '<span class="highlight">$1</span>');
+}
+
 async function search() {
   // Get the search term entered by the user in the form field named 'term'
   let searchTerm = document.forms.searchForm.term.value;
@@ -25,7 +32,7 @@ async function search() {
 
   // Start building the HTML to show the results
   let html = `
-    <p>You searched for "${searchTerm}"...</p>
+    <p>You searched for "<span class="highlight">${searchTerm}</span>"...</p>
     <p>Found ${files.length} results.</p>
   `;
   let image_filetype = ['.jpg','.png', '.tif']
@@ -36,7 +43,7 @@ async function search() {
 
       html += `
         <section>
-          <h2>Filename: ${file.fileName}${file.filetype}</h2>
+          <h2>Filename: ${file.fileName} "Filetype:" <span class="highlight">${file.filetype}</span></h2>
           <img src="${file.url}">
           <p>Metadata: ${JSON.stringify(file.metadata)}</p>
         </section>
@@ -45,7 +52,7 @@ async function search() {
     else {
       html += `
         <section>
-          <h2>Filename: ${file.fileName}${file.filetype}</h2>
+          <h2>Filename: ${file.fileName} "Filetype:" <span class="highlight">${file.filetype}</span></h2>
           <p>Metadata: ${JSON.stringify(file.metadata)}</p>
         </section>
       `;
