@@ -50,6 +50,21 @@ app.get('/api/files', async (request, response) => {
   response.json(result);
 });
 
+// REST API route: Get all people from the database
+// When a GET request is made to /api/people, return all people as JSON
+app.get('/api/music', async (request, response) => {
+  // Query the database for all people
+  let audio_filetype = ['.mp3','.WAV','.aac','.ogg','.wma', '.flac', '.aiff', '.aif']
+
+  let result = await query(`
+    SELECT *
+    FROM files
+    WHERE filetype IN ${audio_filetype}
+  `);
+  // Send the result as a JSON response
+  response.json(result);
+});
+
 // REST API route: Search for people by name or hobby
 // When a GET request is made to /api/people/:searchTerm, search the database
 app.get('/api/files/:searchTerm', async (request, response) => {
@@ -68,18 +83,21 @@ app.get('/api/files/:searchTerm', async (request, response) => {
   response.json(result);
 });
 
-// // REST API route: Search for people by name or hobby
-// // When a GET request is made to /api/people/:searchTerm, search the database
-// app.get('/api/files/:fileType', async (request, response) => {
-//   // Get the search term from the URL and add % for SQL LIKE (partial match)
-//   let searchTerm = `%${request.params.fileType}%`;
-//   // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
-//   let result = await query(`
-//     SELECT *
-//     FROM files
-//     WHERE 
-//       filetype = (?)
-//   `, [fileType]);
-//   // Send the result as a JSON response
-//   response.json(result);
-// });
+// REST API route: Search for people by name or hobby
+// When a GET request is made to /api/people/:searchTerm, search the database
+app.get('/api/music/:searchTerm', async (request, response) => {
+  // Get the search term from the URL and add % for SQL LIKE (partial match)
+  let searchTerm = `%${request.params.searchTerm}%`;
+  let audio_filetype = ['.mp3', '.WAV','.aac','.ogg','.wma', '.flac', '.aiff', '.aif']
+  // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
+  let result = await query(`
+    SELECT *
+    FROM files
+    WHERE 
+      LOWER(fileName) LIKE LOWER(?) OR
+      LOWER(metadata) LIKE LOWER(?) AND
+      filetype = (?)
+  `, [searchTerm, searchTerm, '.mp3']);
+  // Send the result as a JSON response
+  response.json(result);
+});
