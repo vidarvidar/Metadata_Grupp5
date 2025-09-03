@@ -25,7 +25,7 @@ section {
 
 /* Style the name of each person */
 h2 {
-  color: rgb(157, 35, 35);
+  color: rgb(0, 0, 0);
 }
 
 /* Style the main page heading */
@@ -52,4 +52,14 @@ button {
 /* Style the area where search results are shown */
 .searchResults {
   margin-top: 20px;
+}
+
+.highlight {
+  background-color: rgb(238, 255, 0);
+  font-weight: bold;
+}
+
+.mark {
+  background-color: rgb(255, 255, 0);
+  font-weight: bold;
 }
