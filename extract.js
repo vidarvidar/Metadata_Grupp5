@@ -79,6 +79,7 @@ for (let file of files) {
 
     let metadata = JSON.stringify(raw);
     console.log(file)
+    let result = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?, ?,?, ?)', [path.parse(file).name, path.parse(file).ext, 'Data/' + file, metadata]);
   }
 } 
 await db.end();

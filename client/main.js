@@ -30,7 +30,7 @@ async function search() {
   // Convert the JSON response to a JavaScript array
   let files = await rawData.json();
 
-  // Start building the HTML to show the results
+  // Start building the HTML to show the results  
   let html = `
     <p>You searched for "<span class="highlight">${searchTerm}</span>"...</p>
     <p>Found ${files.length} results.</p>

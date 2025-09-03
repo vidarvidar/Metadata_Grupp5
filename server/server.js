@@ -78,8 +78,23 @@ app.get('/api/files/:fileType', async (request, response) => {
     SELECT *
     FROM files
     WHERE 
-      filetype = '?'
+      filetype = '?
   `, [searchTerm, searchTerm, searchTerm]);
   // Send the result as a JSON response
   response.json(result);
 });
+
+app.get('/api/files/metadata/:searchTerm', async (request, response) => {
+
+  let searchTerm = `%${request.params.metadata}%`;
+
+  let result = await query(`
+    SELECT *
+    FROM files
+    WHERE 
+      LOWER(metadata) LIKE LOWER(?)
+  `, [searchTerm]);
+
+  response.json(result);
+});
+
