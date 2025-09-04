@@ -49,7 +49,7 @@ for (let file of files) {
     let metadata = JSON.stringify(raw);
     console.log(file)
     // Uploads row by row into database with local storage path as url
-    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [path.parse(file).name, path.parse(file).ext, 'Data/' + file, metadata]);
+    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
     
   }
   if (audio_filetype.includes(path.parse(file).ext)) {
@@ -59,7 +59,7 @@ for (let file of files) {
     delete raw.quality;
     let metadata = JSON.stringify(raw);
     console.log(file) 
-    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [path.parse(file).name, path.parse(file).ext, 'Data/' + file, metadata]);
+    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
   
     }
   if (path.parse(file).ext == '.pdf') {
@@ -71,7 +71,7 @@ for (let file of files) {
 
     let metadata = JSON.stringify(raw_metadata)
     console.log(file)
-    let result = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?, ?,?, ?)', [path.parse(file).name, path.parse(file).ext, 'Data/' + file, metadata]);
+    let result = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?, ?,?, ?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
     }
   
   if (path.parse(file).ext == '.xlsx') {
@@ -81,7 +81,7 @@ for (let file of files) {
     let metadata = JSON.stringify(raw);
     console.log(file)
   }
-    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [path.parse(file).name, path.parse(file).ext, 'Data/' + file, metadata]);
+    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
     
 } 
 await db.end();
