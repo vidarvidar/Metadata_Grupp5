@@ -3,7 +3,7 @@
 function escapeRegExp(str) {
   return String(str).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
-
+// Escapa HTML-tecken i en sträng för att förhindra XSS-attacker (vet ej om detta behövs)
 function escapeHTML(str) {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -33,6 +33,7 @@ function stringifyMetadata(meta) {
   return String(meta);
 }
 
+// Highlight search term in metadata safely (after escaping HTML)
 function highlightSafe(rawMeta, searchTerm) {
   if (!searchTerm) return escapeHTML(stringifyMetadata(rawMeta));
   const text = escapeHTML(stringifyMetadata(rawMeta));
@@ -54,9 +55,7 @@ async function search() {
     return;
   }
 
-  // Clear the input field after searching
-  document.forms.searchForm.term.value = '';
-
+  
   // Send a request to the server to search for people matching the search term
   // The server will return a JSON array of people
   let rawData = await fetch('/api/files/' + encodeURIComponent(searchTerm));
@@ -64,20 +63,35 @@ async function search() {
   // Convert the JSON response to a JavaScript array
   let files = await rawData.json();
 
+  // Clear the input field after searching
+  document.forms.searchForm.term.value = '';
+
   // Start building the HTML to show the results  
-   let html = `
+  let html = `
     <p>You searched for "<span class="highlight">${escapeHTML, (searchTerm)}</span>"...</p>
     <p>Found ${files.length} results.</p>
   `;
-  let image_filetype = ['.jpg','.png', '.tif']
-  // Loop through each person in the results and add their info to the HTML
-  for (let file of files) {
-    
-    let highlightedMetadata = highlight(file.metadata, searchTerm);
-    
-    if (image_filetype.includes(file.filetype)) {
-      html += `
+  
+  // Array of common image file extensions
+  let imageExts =  ['.jpg', '.jpeg', '.png', '.tif', '.tiff', 'jpg', 'jpeg', 'png', 'tif', 'tiff'];
+  
+  
+  // Loop through each person in the results and ad
+      // Säkerställ fältnamn (ändra vid behov till dina faktiska keys)
       
+  for (let file of files) {
+
+    let filename = file.filename ?? file.fileName ?? 'Unknown filename';
+    let filetype = (file.filetype ?? '').toLowerCase();
+    let url = file.url ?? '';
+    
+    
+    let isImage = imageExts.some(ext => filetype.endsWith(ext));
+   
+    
+    let highlightedMetadata = highlightSafe(file.metadata, searchTerm);
+    
+    html += `
       <section>
         <h2>Filename: ${escapeHTML(filename)} — Filetype: <span class="highlight">${escapeHTML(filetype)}</span></h2>
         ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
@@ -85,6 +99,6 @@ async function search() {
       </section>
     `;
   }
-  // Update the page with the new HTML showing the search results
+
   searchResultsElement.innerHTML = html;
 }
