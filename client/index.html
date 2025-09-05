@@ -19,21 +19,27 @@
   <h1>Files</h1>
 
   <p><mark>marked</mark> files is our metadata</p>
+  <section id="Types"></section>
+
   <!--
     Search form:
     - Lets the user type a search term (name or hobby)
     - Calls the search() function in main.js when submitted
     - return false prevents the page from reloading
   -->
-  <form name="searchForm" onsubmit="search(); return false">
+  <form name="searchForm" onsubmit="return false">
     <input name="term" placeholder="Search term">
     <!-- <input type="checkbox" id="type1" value="jpg">
     <label for="type1">jpg</label>
     <input type="checkbox" id="type1" value="mp3">
     <label for="type1">mp3</label> -->
-    <button type="submit">Search</button>
+    <button id="SearchMusic" type="submit">Search Music</button>
+    <button id="SearchAll" type="submit">Search All</button>
   </form>
-
+  <!-- <form name="searchForm" onsubmit="musicSearch(); return false">
+    <input name="term" placeholder="Search term">
+    <button id="SearchMusic" type="submit">Search Music</button>
+  </form> -->
   <!--
     Section to display search results:
     - Results will be shown here by main.js

@@ -7,7 +7,55 @@ function highlight(text, searchTerm) {
   return text.replace(regex, '<span class="highlight">$1</span>');
 }
 
-async function search() {
+// let filetypesElment = document.querySelector('#Types')
+// let rawTypes = fetch('/api/filetypes')
+// console.log(rawTypes)
+// let types = JSON.parse(rawTypes)
+// console.log(types)
+// let html = `<h2>Current filetypes</h2>
+// `
+// for (let type of types) {
+//   html += `  
+//         <h2>Type:${type}</h2>
+//     `
+// }
+// filetypesElment.innerHTML = html;
+
+document.querySelector("#SearchMusic").addEventListener("click",(e) => musicSearch(e));
+document.querySelector("#SearchAll").addEventListener("click",(e) => search(e));
+
+async function musicSearch(e) {
+
+   console.log("Searching...")
+   let searchTerm = document.forms.searchForm.term.value
+   console.log("search term -", searchTerm)
+  
+   document.forms.searchForm.term.value = '';
+
+   const response = await fetch("/api/music/" + searchTerm)
+
+   console.log("Status - ", response.status)
+
+   const results = await response.json()
+   console.log("Result - ", results)
+   let searchResultsElement = document.querySelector('.searchResults');  
+   let html = `
+    <p>You searched for "<span class="highlight">${searchTerm}</span>"...</p>
+    <p>Found ${results.length} results.</p>
+  `;  
+   for (let result of results) {
+        html += `
+        <section>
+          <h2>Filename: ${result.fileName}</h2>
+          <p>Metadata: ${JSON.stringify(result.metadata)}</p>
+        </section>
+      `;
+   }
+  searchResultsElement.innerHTML = html;
+
+}
+
+async function search(e) { 
   // Get the search term entered by the user in the form field named 'term'
   let searchTerm = document.forms.searchForm.term.value;
 
