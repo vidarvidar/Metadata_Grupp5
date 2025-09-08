@@ -69,7 +69,6 @@ app.get('/api/files/:searchTerm', async (request, response) => {
   response.json(result);
 });
 
-
 // REST API route: Get all people from the database
 // When a GET request is made to /api/people, return all people as JSON
 app.get('/api/music/', async (request, response) => {
@@ -82,6 +81,46 @@ app.get('/api/music/', async (request, response) => {
   // Send the result as a JSON response
   response.json(result);
 });
+
+// REST API route: Get all people from the database
+// When a GET request is made to /api/people, return all people as JSON
+app.get('/api/images/', async (request, response) => {
+  // Query the database for all people
+  let result = await query(`
+    SELECT *
+    FROM files
+    WHERE filetype IN ('.jpg','.png', '.tif')
+  `);
+  // Send the result as a JSON response
+  response.json(result);
+});
+
+// REST API route: Get all people from the database
+// When a GET request is made to /api/people, return all people as JSON
+app.get('/api/videos/', async (request, response) => {
+  // Query the database for all people
+  let result = await query(`
+    SELECT *
+    FROM files
+    WHERE filetype IN ('.mp4', '.avi', '.mkv', '.mov')
+  `);
+  // Send the result as a JSON response
+  response.json(result);
+});
+
+// REST API route: Get all people from the database
+// When a GET request is made to /api/people, return all people as JSON
+app.get('/api/pdfs/', async (request, response) => {
+  // Query the database for all people
+  let result = await query(`
+    SELECT *
+    FROM files
+    WHERE filetype = ".pdf"
+  `);
+  // Send the result as a JSON response
+  response.json(result);
+});
+
 
 // REST API route: Search for people by name or hobby
 // When a GET request is made to /api/people/:searchTerm, search the database
@@ -101,6 +140,60 @@ app.get('/api/music/:searchTerm', async (request, response) => {
   response.json(result);
 });
 
+// REST API route: Search for people by name or hobby
+// When a GET request is made to /api/people/:searchTerm, search the database
+app.get('/api/pdfs/:searchTerm', async (request, response) => {
+  // Get the search term from the URL and add % for SQL LIKE (partial match)
+  let searchTerm = `%${request.params.searchTerm}%`;
+  console.log(searchTerm)
+  // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
+  let result = await query(`
+    SELECT *
+    FROM files
+    WHERE 
+      filetype = ".pdf" AND 
+      (LOWER(fileName) LIKE LOWER(?) or
+      LOWER(metadata) LIKE LOWER(?))
+  `, [searchTerm, searchTerm]);
+  response.json(result);
+});
+
+// REST API route: Search for people by name or hobby
+// When a GET request is made to /api/people/:searchTerm, search the database
+app.get('/api/images/:searchTerm', async (request, response) => {
+  // Get the search term from the URL and add % for SQL LIKE (partial match)
+  let searchTerm = `%${request.params.searchTerm}%`;
+  console.log(searchTerm)
+  // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
+  let result = await query(`
+    SELECT *
+    FROM files
+    WHERE 
+      filetype IN ('.jpg','.png', '.tif') AND 
+      (LOWER(fileName) LIKE LOWER(?) or
+      LOWER(metadata) LIKE LOWER(?))
+  `, [searchTerm, searchTerm]);
+  response.json(result);
+});
+
+// REST API route: Search for people by name or hobby
+// When a GET request is made to /api/people/:searchTerm, search the database
+app.get('/api/videos/:searchTerm', async (request, response) => {
+  // Get the search term from the URL and add % for SQL LIKE (partial match)
+  let searchTerm = `%${request.params.searchTerm}%`;
+  console.log(searchTerm)
+  // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
+  let result = await query(`
+    SELECT *
+    FROM files
+    WHERE 
+      filetype IN ('.mp4', '.avi', '.mkv', '.mov') AND 
+      (LOWER(fileName) LIKE LOWER(?) or
+      LOWER(metadata) LIKE LOWER(?))
+  `, [searchTerm, searchTerm]);
+  response.json(result);
+});
+
 app.get('/api/filetypes', async (request, response) => {
   // Query the database for all people
   let result = await query(`
@@ -108,5 +201,22 @@ app.get('/api/filetypes', async (request, response) => {
     FROM files
   `);
   // Send the result as a JSON response
+  response.json(result);
+});
+
+// REST API route: Search for people by name or hobby
+// When a GET request is made to /api/people/:searchTerm, search the database
+app.get('/api/metadata/:cat', async (request, response) => {
+  // Get the search term from the URL and add % for SQL LIKE (partial match)
+  let cat = `%${request.params.cat}%`;
+  console.log(cat)
+  // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
+  let result = await query(`
+    SELECT JSON_KEYS(metadata)
+    FROM files
+    WHERE filetype LIKE LOWER(?)
+  `, [cat]);
+  // Send the result as a JSON response
+  
   response.json(result);
 });

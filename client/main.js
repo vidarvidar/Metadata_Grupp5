@@ -6,23 +6,121 @@ function highlight(text, searchTerm) {
   const regex = new RegExp(`(${searchTerm})`, 'gi');
   return text.replace(regex, '<span class="highlight">$1</span>');
 }
-
-// let filetypesElment = document.querySelector('#Types')
-// let rawTypes = fetch('/api/filetypes')
-// console.log(rawTypes)
-// let types = JSON.parse(rawTypes)
-// console.log(types)
-// let html = `<h2>Current filetypes</h2>
-// `
-// for (let type of types) {
-//   html += `  
-//         <h2>Type:${type}</h2>
-//     `
+// async function getTypes() {
+//   let filetypesElment = document.querySelector('#Types')
+//   let response = fetch('/api/filetypes/')
+//   console.log(response)
+//   let types = response.json()
+//   console.log(types)
+//   let html = `<h2>Current filetypes</h2>
+//   `
+//   for (let type of types) {
+//     html += `  
+//           <h2>Type:${type}</h2>
+//       `
+//   }
+//   filetypesElment.innerHTML = html;
 // }
-// filetypesElment.innerHTML = html;
 
 document.querySelector("#SearchMusic").addEventListener("click",(e) => musicSearch(e));
 document.querySelector("#SearchAll").addEventListener("click",(e) => search(e));
+document.querySelector("#SearchImages").addEventListener("click",(e) => imageSearch(e));
+document.querySelector("#SearchVideos").addEventListener("click",(e) => videoSearch(e));
+document.querySelector("#SearchPdfs").addEventListener("click",(e) => pdfSearch(e));
+
+async function pdfSearch(e) {
+  e.preventDefault()
+   console.log("Searching...")
+   let searchTerm = document.forms.searchForm.term.value
+   console.log("search term -", searchTerm)
+  
+   document.forms.searchForm.term.value = '';
+
+   const response = await fetch("/api/pdfs/" + searchTerm)
+
+   console.log("Status - ", response.status)
+
+   const results = await response.json()
+   console.log("Result - ", results)
+   let searchResultsElement = document.querySelector('.searchResults');  
+   let html = `
+    <p>You searched for "<span class="highlight">${searchTerm}</span>"...</p>
+    <p>Found ${results.length} results.</p>
+  `;  
+   for (let result of results) {
+        html += `
+        <section>
+          <h2>Filename: ${result.fileName}</h2>
+          <p>Metadata: ${JSON.stringify(result.metadata)}</p>
+        </section>
+      `;
+   }
+  searchResultsElement.innerHTML = html;
+
+};
+
+async function videoSearch(e) {
+  e.preventDefault()
+   console.log("Searching...")
+   let searchTerm = document.forms.searchForm.term.value
+   console.log("search term -", searchTerm)
+  
+   document.forms.searchForm.term.value = '';
+
+   const response = await fetch("/api/videos/" + searchTerm)
+
+   console.log("Status - ", response.status)
+
+   const results = await response.json()
+   console.log("Result - ", results)
+   let searchResultsElement = document.querySelector('.searchResults');  
+   let html = `
+    <p>You searched for "<span class="highlight">${searchTerm}</span>"...</p>
+    <p>Found ${results.length} results.</p>
+  `;  
+   for (let result of results) {
+        html += `
+        <section>
+          <h2>Filename: ${result.fileName}</h2>
+          <p>Metadata: ${JSON.stringify(result.metadata)}</p>
+        </section>
+      `;
+   }
+  searchResultsElement.innerHTML = html;
+
+}
+
+async function imageSearch(e) {
+  e.preventDefault()
+   console.log("Searching...")
+   let searchTerm = document.forms.searchForm.term.value
+   console.log("search term -", searchTerm)
+  
+   document.forms.searchForm.term.value = '';
+
+   const response = await fetch("/api/images/" + searchTerm)
+
+   console.log("Status - ", response.status)
+
+   const results = await response.json()
+   console.log("Result - ", results)
+   let searchResultsElement = document.querySelector('.searchResults');  
+   let html = `
+    <p>You searched for "<span class="highlight">${searchTerm}</span>"...</p>
+    <p>Found ${results.length} results.</p>
+  `;  
+   for (let result of results) {
+        html += `
+        <section>
+          <h2>Filename: ${result.fileName}</h2>
+          <img src="${result.url}">
+          <p>Metadata: ${JSON.stringify(result.metadata)}</p>
+        </section>
+      `;
+   }
+  searchResultsElement.innerHTML = html;
+
+}
 
 async function musicSearch(e) {
 
@@ -109,3 +207,32 @@ async function search(e) {
   // Update the page with the new HTML showing the search results
   searchResultsElement.innerHTML = html;
 }
+
+// document.querySelector("#megaBtn").addEventListener("click",(e) => megaSearch(e));
+
+// async function megaSearch(e) {
+//    e.preventDefault()
+//    console.log("Searching...")
+//    const searchTerm = document.querySelector("#megaterm").value
+//    const musicBox = document.querySelector("#musicBox").checked
+//    console.log("search term -", searchTerm)
+//    console.log("checkbox -", checkbox)
+
+//    const response = await fetch("/api/files/",
+//       {
+//          method: "POST",
+//          headers: {
+//             "Content-Type": "application/json"
+//          },
+//          body: JSON.stringify({
+//             "searchTerm": searchTerm,
+//             "musicBox": musicBox
+            
+//          })
+//       }
+//    )
+//    console.log("Status - ", response.status)
+
+//    const result = await response.json()
+//    console.log("Result - ", result)
+// }
