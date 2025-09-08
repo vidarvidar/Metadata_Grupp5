@@ -14,11 +14,17 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
+
+
+
 <body>
   <!-- Main heading of the page -->
   <h1>Files</h1>
 
   <p><mark>marked</mark> files is our metadata</p>
+
+  
+
   <!--
     Search form:
     - Lets the user type a search term (name or hobby)
@@ -28,7 +34,25 @@
   <form name="searchForm" onsubmit="search(); return false">
     <input name="term" placeholder="Search term">
     <button type="submit">Search</button>
+
+    <label>
+      <input type="checkbox" id="audioCheckbox">
+      Only Images
+    </label>
+
+    <label>
+      <input type="checkbox" id="audioCheckbox">
+      Only Audio (mp3)
+    </label>
+
+    <button type="submit">Search</button>
   </form>
+
+  <div class="searchResults"></div>
+
+  
+
+  
 
   <!--
     Section to display search results:
@@ -38,6 +62,10 @@
   <article class="searchResults">
     Search for files
   </article>
+
+  
+  
+    <!-- Genre checkboxes will be dynamically added here -->
 
   <!--
     Load and run the main.js JavaScript file
