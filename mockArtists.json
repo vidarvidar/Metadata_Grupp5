@@ -1,0 +1,62 @@
+[
+  {
+    "filename":"song101.mp3",
+    "title":"Amber Twilight",
+    "artist":"Lucius Hemsworth",
+    "album":"Midnight Serenade",
+    "genre":"Rock",
+    "year":2001,
+    "track_number":3,
+    "duration_seconds":245,
+    "bitrate_kbps":192,
+    "file_size_mb":5.67
+  },
+  {
+    "filename":"music102.mp3",
+    "title":"Electric Solstice",
+    "artist":"Marisol Zetter",
+    "album":"Aurora Beats",
+    "genre":"EDM",
+    "year":2019,
+    "track_number":1,
+    "duration_seconds":310,
+    "bitrate_kbps":256,
+    "file_size_mb":7.54
+  },
+  {
+    "filename":"track103.mp3",
+    "title":"Iron Echo",
+    "artist":"Draxon Wilde",
+    "album":"Steel Pulse",
+    "genre":"Metal",
+    "year":2015,
+    "track_number":7,
+    "duration_seconds":198,
+    "bitrate_kbps":220,
+    "file_size_mb":6.88
+  },
+  {
+    "filename":"audio104.mp3",
+    "title":"Velvet Moon",
+    "artist":"Isla Ventura",
+    "album":"Nocturnal Whispers",
+    "genre":"Classical",
+    "year":2012,
+    "track_number":2,
+    "duration_seconds":420,
+    "bitrate_kbps":320,
+    "file_size_mb":9.21
+  },
+  {
+    "filename":"jam105.mp3",
+    "title":"Quantum Bounce",
+    "artist":"Trey Voltaire",
+    "album":"Glitch Mode",
+    "genre":"Electronic",
+    "year":2018,
+    "track_number":5,
+    "duration_seconds":275,
+    "bitrate_kbps":230,
+    "file_size_mb":8.33
+  }
+]
