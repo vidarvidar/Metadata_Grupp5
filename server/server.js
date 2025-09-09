@@ -54,8 +54,9 @@ app.get('/api/files', async (request, response) => {
 
   // Filtrera på filetype (t.ex. mp3, png, jpeg osv.)
   if (filetype) {
-    sql += ` AND LOWER(filetype) = LOWER(?)`;
-    params.push(filetype);
+    let types = filetype.split(',').map(t => t.trim().toLowerCase());
+    sql +=  ` AND LOWER(filetype) IN (${types.map(() => '?').join(',')})`;
+    params.push(...types);
   }
 
   let result = await query(sql, params);

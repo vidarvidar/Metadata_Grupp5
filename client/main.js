@@ -46,9 +46,16 @@ async function search() {
   // Hämta sökord från formfältet
   let searchTerm = document.forms.searchForm.term.value.trim();
 
+  let types = []
   // Läs checkboxar
-  let onlyImages = document.getElementById("imagesCheckbox")?.checked ?? false;
+  
   let onlyAudio = document.getElementById("audioCheckbox")?.checked ?? false;
+  
+  if (onlyAudio) types.push('.mp3')
+  if (document.getElementById("videoCheckbox")?.checked) types.push('.mp4')
+  if (document.getElementById("imagesCheckbox")?.checked) types.push('.jpg','.jpeg', '.png', '.tif', '.tiff')
+  if (document.getElementById("pdfCheckbox")?.checked) types.push('.pdf')
+
 
   let searchResultsElement = document.querySelector('.searchResults');
 
@@ -58,14 +65,16 @@ async function search() {
     return;
   }
 
+  
   // Bygg query-parametrar
   let url = `/api/files?searchTerm=${encodeURIComponent(searchTerm)}`;
 
   // Om audio är valt → hämta bara mp3
-  if (onlyAudio) {
-    url += `&filetype=.mp3`;
+  if (types.length > 0) {
+    url += `&filetype=${types.join(',')}`;
   }
 
+  
   // Hämta från API
   let allFiles = [];
   try {
@@ -93,7 +102,7 @@ async function search() {
     let isImage = imageExts.some(ext => filetype.endsWith(ext));
 
     // Om onlyImages är markerad, hoppa över filer som inte är bilder
-    if (onlyImages && !isImage) continue;
+    
 
     let highlightedMetadata = highlightSafe(file.metadata, searchTerm);
 
