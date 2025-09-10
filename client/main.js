@@ -51,10 +51,10 @@ async function search() {
   
   let onlyAudio = document.getElementById("audioCheckbox")?.checked ?? false;
   
-  if (onlyAudio) types.push('.mp3')
-  if (document.getElementById("videoCheckbox")?.checked) types.push('.mp4')
+  if (onlyAudio) types.push('.mp3', '.WAV','.aac','.ogg','.wma', '.flac', '.aiff', '.aif')
+  if (document.getElementById("videoCheckbox")?.checked) types.push('.mp4', '.avi', '.mkv', '.mov')
   if (document.getElementById("imagesCheckbox")?.checked) types.push('.jpg','.jpeg', '.png', '.tif', '.tiff')
-  if (document.getElementById("pdfCheckbox")?.checked) types.push('.pdf')
+  if (document.getElementById("pdfCheckbox")?.checked) types.push('.pdf', '.xlsx')
 
 
   let searchResultsElement = document.querySelector('.searchResults');
@@ -83,7 +83,7 @@ async function search() {
   } catch (err) {
     console.error("Error fetching files:", err);
   }
-
+  console.log('allfiles log -', allFiles)
   // Börja bygga HTML för resultaten
   let html = `
     <p>You searched for "<span class="highlight">${escapeHTML(searchTerm)}</span>"...</p>
