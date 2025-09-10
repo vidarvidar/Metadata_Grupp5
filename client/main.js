@@ -36,8 +36,8 @@
   // Highlight search term in metadata safely (after escaping HTML)
   function highlightSafe(rawMeta, searchTerm) {
     if (!searchTerm) return escapeHTML(stringifyMetadata(rawMeta));
-    const text = escapeHTML(stringifyMetadata(rawMeta));
-    const rx = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
+    let text = escapeHTML(stringifyMetadata(rawMeta));
+    let rx = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
     return text.replace(rx, '<span class="highlight">$1</span>');
   }
 
@@ -78,7 +78,7 @@ async function search() {
   // Hämta från API
   let allFiles = [];
   try {
-    const res = await fetch(url);
+    let res = await fetch(url);
     allFiles = await res.json();
   } catch (err) {
     console.error("Error fetching files:", err);
@@ -91,7 +91,7 @@ async function search() {
   `;
 
   // Vanliga bild-ändelser
-  const imageExts = ['jpg', 'jpeg', 'png', 'tif', 'tiff'];
+  let imageExts = ['jpg', 'jpeg', 'png', 'tif', 'tiff'];
 
   for (let file of allFiles) {
     let filename = file.filename ?? file.fileName ?? 'Unknown filename';
@@ -101,7 +101,7 @@ async function search() {
     // Kolla om filen är en bild
     let isImage = imageExts.some(ext => filetype.endsWith(ext));
 
-    // Om onlyImages är markerad, hoppa över filer som inte är bilder
+    
     
 
     let highlightedMetadata = highlightSafe(file.metadata, searchTerm);
