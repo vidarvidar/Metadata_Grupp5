@@ -40,7 +40,7 @@ async function query(sql, listOfValues) {
 
 
 app.get('/api/files', async (request, response) => {
-  let { searchTerm, filetype } = request.query;
+  let { searchTerm, filetype, } = request.query;
 
   let sql = `SELECT * FROM files WHERE 1=1`;
   let params = [];
@@ -64,29 +64,6 @@ app.get('/api/files', async (request, response) => {
 });
 
 
-app.get('/api/files', async (request, response) => {
-  let { searchTerm, filetype } = request.query;
-
-  let sql = `SELECT * FROM files WHERE 1=1`;
-  let params = [];
-
-  // Filtrera på sökord
-  if (searchTerm) {
-    searchTerm = `%${searchTerm}%`;
-    sql += ` AND (LOWER(fileName) LIKE LOWER(?) OR LOWER(url) LIKE LOWER(?) OR LOWER(metadata) LIKE LOWER(?))`;
-    params.push(searchTerm, searchTerm, searchTerm);
-  }
-
-  // Filtrera på filetype (t.ex. mp3, png, jpeg osv.)
-  if (filetype) {
-    let types = filetype.split(',').map(t => t.trim().toLowerCase());
-    sql +=  ` AND LOWER(filetype) IN (${types.map(() => '?').join(',')})`;
-    params.push(...types);
-  }
-
-  let result = await query(sql, params);
-  response.json(result);
-});
 
 
 

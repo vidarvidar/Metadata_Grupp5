@@ -41,10 +41,16 @@
     return text.replace(rx, '<span class="highlight">$1</span>');
   }
 
+async function ToggleDropdown() {
+  document.getElementById("filetypeDropdown").classList.toggle("show");
+}
+
 
 async function search() {
   // Hämta sökord från formfältet
   let searchTerm = document.forms.searchForm.term.value.trim();
+
+
 
   let types = []
   // Läs checkboxar

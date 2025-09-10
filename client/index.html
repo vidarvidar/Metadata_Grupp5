@@ -39,27 +39,15 @@
     <label for="type1">mp3</label> -->
     <button type="submit">Search</button>
 
-  
-    <label>
-      <input type="checkbox" id="audioCheckbox">
-      Music
-    </label>
-
-    <label>
-      <input type="checkbox" id="imagesCheckbox">
-      Images
-    </label>
-
-    <label>
-      <input type="checkbox" id="pdfCheckbox">
-      Docs
-    </label>
-
-    <label>
-      <input type="checkbox" id="videoCheckbox">
-      Videos
-    </label>
-
+    <div class="dropdown"  id="filetypeDropdown"> 
+      <div class="dropdown-btn" onclick="ToggleDropdown()">Välj filtyper</div>
+      <div class="dropdown-content">
+        <label><input type="checkbox" id="audioCheckbox"> MP3</label><br>
+        <label><input type="checkbox" id="videoCheckbox"> MP4</label><br>
+        <label><input type="checkbox" id="imagesCheckbox"> JPG</label><br>
+        <label><input type="checkbox" id="pdfCheckbox"> PDF</label>
+      </div>
+    </div>
     
     <button type="submit">Search</button>
   </form>
