@@ -97,29 +97,46 @@ async function search() {
   `;
 
   // Vanliga bild-ändelser
-  let imageExts = ['jpg', 'jpeg', 'png', 'tif', 'tiff'];
+  let imageExts = ['.jpg', '.jpeg', '.png', '.tif', '.tiff'];
 
   for (let file of allFiles) {
     let filename = file.filename ?? file.fileName ?? 'Unknown filename';
     let filetype = (file.filetype ?? '').toLowerCase();
     let url = file.url ?? '';
-
+    console.log('file - ', file, filename, filetype)
+    console.log('meta - ', file.metadata)
+    console.log('longitude - ', file.metadata.longitude)
     // Kolla om filen är en bild
     let isImage = imageExts.some(ext => filetype.endsWith(ext));
 
-    
-    
-
     let highlightedMetadata = highlightSafe(file.metadata, searchTerm);
 
-    html += `
-      <section>
-        <h2>Filename: ${escapeHTML(filename)} — Filetype: <span class="highlight">${escapeHTML(filetype)}</span></h2>
-        ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
-        <p>Metadata: ${highlightedMetadata}</p>
-      </section>
-    `;
-  }
+    if (file.metadata.longitude && file.metadata.latitude) {
+        let lon = file.metadata.longitude
+        let lat = file.metadata.latitude
+
+        html += `
+          <section>
+            <h2>Filename: ${escapeHTML(filename)}</h2>
+            ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
+            <p>Metadata: ${highlightedMetadata}</p>
+              <a href="https://maps.google.com/?q=${lat},${lon}">Open in Google Maps</a>
+          </section>
+
+      `;
+      }
+    
+    else {
+
+      html += `
+          <section>
+            <h2>Filename: ${escapeHTML(filename)}</h2>
+            ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
+            <p>Metadata: ${highlightedMetadata}</p>
+          </section>
+        `  
+    }
+  }  
 
   searchResultsElement.innerHTML = html;
 }
