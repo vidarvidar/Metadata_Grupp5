@@ -42,10 +42,10 @@ for (let file of files) {
   // Only for files ending with .jpg
   // slice(-4) get the last 4 letters from the image name
   let audio_filetype = ['.mp3', '.WAV','.aac','.ogg','.wma', '.flac', '.aiff', '.aif']
-  let image_filetype = ['.jpg','.png', '.tif']
+  let image_filetype = ['.jpg','.png', '.tif', '.jpeg']
   let video_filetype = ['.mp4', '.avi', '.mkv', '.mov']
   
-  if (image_filetype.includes(path.parse(file).ext)) {
+  if (image_filetype.includes(path.parse(file).ext.toLowerCase())) {
 
     let raw = await exifr.parse('client/Data/' + file);
 
@@ -59,7 +59,7 @@ for (let file of files) {
       console.log(err)
     }
   }
-  if (audio_filetype.includes(path.parse(file).ext)) {
+  if (audio_filetype.includes(path.parse(file).ext.toLowerCase())) {
     
     let raw = await musicMetadata.parseFile('client/Data/' + file);
     delete raw.native;
@@ -91,11 +91,14 @@ for (let file of files) {
 
     let metadata = JSON.stringify(raw);
     console.log(file)
-    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
+    try {
+      let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
+    }
+    catch(err) {console.log(err)}
   }
     
     
-  if (video_filetype.includes(path.parse(file).ext)) {
+  if (video_filetype.includes(path.parse(file).ext.toLowerCase())) {
     let ext = path.parse(file).ext.toLowerCase();
     let filePath = path.join('client/Data/', file);
 
@@ -103,8 +106,11 @@ for (let file of files) {
 
     let metadata = JSON.stringify(raw);
     console.log(file)
-    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
-  }
+    try {
+      let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
+    }
+    catch(err) {console.log(err)}
+    }
     
 } 
 await db.end();
