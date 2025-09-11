@@ -38,15 +38,28 @@ async function query(sql, listOfValues) {
   return result[0]; // result[0] contains the rows
 }
 
-// REST API route: Get all people from the database
-// When a GET request is made to /api/people, return all people as JSON
+
 app.get('/api/files', async (request, response) => {
-  // Query the database for all people
-  let result = await query(`
-    SELECT *
-    FROM files
-  `);
-  // Send the result as a JSON response
+  let { searchTerm, filetype, } = request.query;
+
+  let sql = `SELECT * FROM files WHERE 1=1`;
+  let params = [];
+
+  // Filtrera på sökord
+  if (searchTerm) {
+    searchTerm = `%${searchTerm}%`;
+    sql += ` AND (LOWER(fileName) LIKE LOWER(?) OR LOWER(url) LIKE LOWER(?) OR LOWER(metadata) LIKE LOWER(?))`;
+    params.push(searchTerm, searchTerm, searchTerm);
+  }
+
+  // Filtrera på filetype (t.ex. mp3, png, jpeg osv.)
+  if (filetype) {
+    let types = filetype.split(',').map(t => t.trim().toLowerCase());
+    sql +=  ` AND LOWER(filetype) IN (${types.map(() => '?').join(',')})`;
+    params.push(...types);
+  }
+
+  let result = await query(sql, params);
   response.json(result);
 });
 

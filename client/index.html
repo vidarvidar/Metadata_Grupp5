@@ -14,13 +14,16 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
+
+
+
 <body>
   <!-- Main heading of the page -->
   <h1>Files</h1>
 
   <p><mark>marked</mark> files is our metadata</p>
 
-  <section id="Types"></section>
+  
 
   <!--
     Search form:
@@ -34,18 +37,31 @@
     <label for="type1">jpg</label>
     <input type="checkbox" id="type1" value="mp3">
     <label for="type1">mp3</label> -->
+    <button type="submit">Search</button>
+
+    <div class="dropdown"  id="filetypeDropdown"> 
+      <div class="dropdown-btn" onclick="ToggleDropdown()">Välj filtyper</div>
+      <div class="dropdown-content">
+        <label><input type="checkbox" id="audioCheckbox"> MP3</label><br>
+        <label><input type="checkbox" id="videoCheckbox"> MP4</label><br>
+        <label><input type="checkbox" id="imagesCheckbox"> JPG</label><br>
+        <label><input type="checkbox" id="pdfCheckbox"> PDF</label>
+      </div>
+    </div>
+    
+    <!-- <button type="submit">Search</button>
     <div>
       <button id="SearchAll" type="submit">Search All</button>
       <button id="SearchMusic" type="submit">Search Music</button>
       <button id="SearchImages" type="submit">Search Images</button>
       <button id="SearchPdfs" type="submit">Search Pdfs</button>
       <button id="SearchVideos" type="submit">Search Videos</button>
-    </div>
+    </div> -->
   </form>
-  <!-- <form name="searchForm" onsubmit="musicSearch(); return false">
-    <input name="term" placeholder="Search term">
-    <button id="SearchMusic" type="submit">Search Music</button>
-  </form> -->
+
+  <div class="searchResults"></div>
+
+
   <!--
     Section to display search results:
     - Results will be shown here by main.js
@@ -53,18 +69,9 @@
   -->
   <article class="searchResults">
     Search for files
-  </article>
-
-  <form name="megaSearch" onsubmit="return false">
-    <input id="megaterm" placeholder="Search term">
-    <!-- <input type="checkbox" id="type1" value="jpg">
-    <label for="type1">jpg</label>
-    <input type="checkbox" id="type1" value="mp3">
-    <label for="type1">mp3</label> -->
-    <button id="megaBtn" type="submit">Search</button>
-    <input type="checkbox" name="checkbox" id="musicBox">
-    <label for="musicBox">Search Music</label>
-  </form>
+  </article> 
+  
+    <!-- Genre checkboxes will be dynamically added here -->
 
   <!--
     Load and run the main.js JavaScript file
