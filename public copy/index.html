@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="Alaa_Najib.png">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+</head>
+
+<body>
+    <div class="menu">
+        <ul>
+            <li class="profil">
+                <div class="img-box">
+                    <img src="image.png" alt="Profile">
+                </div>
+                <h2>Group 5</h2>
+            </li>
+            <li>
+                <a class="active" href="#">
+                    <i class="fas fa-home"></i>
+                    <p>Home</p>
+                </a>
+            </li>
+            <li>
+                <a href="Vidar,Alaa,Isra,John,Max">
+                    <i class="fas fa-user"></i>
+                    <p>Group members</p>
+                </a>
+            </li>
+            <li>
+                <a href="files">
+                    <i class="fas fa-table"></i>
+                    <p>All files</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-star"></i>
+                    <p>favorite</p>
+                </a>
+            </li>
+            <li>
+                <a href="mailto:alaanajib33@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>contact us</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <p>setting</p>
+                </a>
+            </li>
+            <li class="log-out">
+                <a href="#">
+                    <i class="fas fa-sign-out"></i>
+                    <p>Log Out</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <header>
+        <div class="top_header">
+            <div class="container">
+                <a href="#" class="logo"></a>
+                <form action="" class="search_box">
+                    <!-- Vanlig select -->
+                    <div class="select_box">
+                        <select id="category" name="category">
+                            <option value="all">All files</option>
+                            <option value="image">Images</option>
+                            <option value="pdf">PDFs</option>
+                            <option value="audio">Audio</option>
+                        </select>
+                    </div>
+
+                    <!-- Din nya checkbox-dropdown -->
+                    <div class="dropdown" id="filetypeDropdown">
+                        <div class="dropdown-btn" onclick="ToggleDropdown()">Välj filtyper</div>
+                        <div class="dropdown-content">
+                            <label><input type="checkbox" value="MP3"> MP3</label><br>
+                            <label><input type="checkbox" value="MP4"> MP4</label><br>
+                            <label><input type="checkbox" value="JPG"> JPG</label><br>
+                            <label><input type="checkbox" value="PDF"> PDF</label>
+                        </div>
+                    </div>
+
+
+                    <!-- Searchfältet -->
+                    <input type="text" name="search" id="search" placeholder="search for products" required>
+
+                    <!-- Knapp -->
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+        </div>
+    </header>
+    <div class="homepage">
+        <div class="content">
+            <section class="results-section">
+                <h2>Search results</h2>
+                <div id="results" aria-live="polite"></div>
+                <div id="empty-hint">Skriv i sökfältet ovan och tryck Enter för att se resultat.</div>
+            </section>
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
