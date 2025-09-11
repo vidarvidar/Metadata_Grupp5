@@ -32,7 +32,7 @@ async function query(sql){
 let files = fs.readdirSync('client/Data/');
 // Empties the database before attempting insert to avoid duplicate,
 // Take this out if you wish to add to db without deleting
-let empty = await query('DELETE FROM files')
+// let empty = await query('DELETE FROM files')
 
 
 
@@ -51,9 +51,13 @@ for (let file of files) {
 
     let metadata = JSON.stringify(raw);
     console.log(file)
+    try {
     // Uploads row by row into database with local storage path as url
-    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
-    
+      let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
+    }
+    catch(err) {
+      console.log(err)
+    }
   }
   if (audio_filetype.includes(path.parse(file).ext)) {
     
@@ -62,8 +66,10 @@ for (let file of files) {
     delete raw.quality;
     let metadata = JSON.stringify(raw);
     console.log(file) 
-    let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
-  
+    try {
+      let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
+    }
+    catch(err) {console.log(err)}
     }
   if (path.parse(file).ext == '.pdf') {
 
@@ -74,9 +80,11 @@ for (let file of files) {
 
     let metadata = JSON.stringify(raw_metadata)
     console.log(file)
-    let result = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?, ?,?, ?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
+    try {
+     let result = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?, ?,?, ?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
     }
-  
+    catch(err) {console.log(err)}
+  }
   if (path.parse(file).ext == '.xlsx') {
 
     let raw = await xlsx.readFile('client/Data/' + file)

@@ -71,6 +71,7 @@
             <div class="container">
                 <a href="#" class="logo"></a>
                 <form action="" class="search_box">
+                    <!-- Vanlig select -->
                     <div class="select_box">
                         <select id="category" name="category">
                             <option value="all">All files</option>
@@ -79,12 +80,28 @@
                             <option value="audio">Audio</option>
                         </select>
                     </div>
+
+                    <!-- Din nya checkbox-dropdown -->
+                    <div class="dropdown" id="filetypeDropdown">
+                        <div class="dropdown-btn" onclick="ToggleDropdown()">Välj filtyper</div>
+                        <div class="dropdown-content">
+                            <label><input type="checkbox" value="MP3"> MP3</label><br>
+                            <label><input type="checkbox" value="MP4"> MP4</label><br>
+                            <label><input type="checkbox" value="JPG"> JPG</label><br>
+                            <label><input type="checkbox" value="PDF"> PDF</label>
+                        </div>
+                    </div>
+
+
+                    <!-- Searchfältet -->
                     <input type="text" name="search" id="search" placeholder="search for products" required>
+
+                    <!-- Knapp -->
                     <button type="submit">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-
                 </form>
+
             </div>
         </div>
         </div>
@@ -100,7 +117,7 @@
 
     </div>
 
-    <script src="search.js"></script>
+    <script src="main.js"></script>
 
 </body>
 

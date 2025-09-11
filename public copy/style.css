@@ -8,7 +8,6 @@
     text-decoration: none;
     user-select: none;
     scroll-behavior: smooth;
-
 }
 
 body {
@@ -76,7 +75,6 @@ ul li a {
     align-items: center;
     gap: 40px;
     transition: .5s;
-
 }
 
 ul li a:hover,
@@ -122,7 +120,6 @@ ul li a i {
     --color_heading: #000000;
     --border_color: #915d5d;
     --sale_color: #d63434;
-
 }
 
 span {
@@ -141,7 +138,6 @@ h5,
 h6 {
     color: var(--color_heading);
     font-family: "DM Sans", sans-serif;
-
 }
 
 img {
@@ -158,116 +154,242 @@ img {
     .container {
         width: 90%;
     }
-
 }
 
-/*start header*/
-
+/* HEADER */
 header {
-
     position: fixed;
     top: 0;
-    left: 0;
+    left: 90px;
     right: 0;
+    background: #d2c5c5;
+    padding: 15px 20px;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
+.menu:hover~header {
+    left: 260px;
+    transition: left 0.3s ease;
 }
 
 header .top_header .container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 29px 0;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-header .top_header .loge {
-    width: 180px;
-
+header .logo {
+    width: 120px;
+    height: auto;
 }
 
-header .top_header .container .search_box {
-    width: 610px;
+/* SEARCH BOX */
+.search_box {
     display: flex;
     align-items: center;
-    border-radius: 2px;
-    background: var(--bg_color);
-
+    gap: 10px;
+    flex: 1;
 }
 
-header .top_header .container .search_box input {
-    height: 55px;
-    width: 400px;
-    padding: 5px 15px 5px 10px;
-    background: var(--bg_color);
-    outline: none;
-    border: none;
-
+.search_box input[type="text"] {
+    flex: 1;
+    height: 45px;
+    padding: 0 15px;
+    border-radius: 8px;
+    border: 1px solid #915d5d;
+    font-size: 16px;
+    background-color: #bdb0b0;
 }
 
-header .top_header .container .search_box .select_box {
-    position: relative;
-    background: #766e6e;
-
-
-}
-
-header .top_header .container .search_box .select_box ::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
-    width: 1px;
-    height: 50%;
-    background: #9c9191;
-}
-
-header .top_header .container .search_box .select_box select {
-    height: 55px;
-    width: 190px;
-    outline: none;
-    border: none;
-    background: var(--bg_color);
+.search_box button {
+    height: 45px;
+    padding: 0 15px;
+    border-radius: 8px;
+    background-color: #9b8989;
+    color: #fff;
     font-size: 16px;
     cursor: pointer;
-    padding-left: 10px;
-    margin-right: 10px;
+    border: none;
+    transition: background 0.3s;
 }
 
-header .top_header .container .search_box .select_box select option {
-    font-size: 15px;
+.search_box button:hover {
+    background-color: #8a7373;
 }
 
-header .top_header .container .search_box button {
-    height: 55px;
-    width: 60px;
-    background: var(--main_color);
-    font-size: 18px;
+/* SELECT BOX */
+.select_box select {
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid #915d5d;
+    padding: 0 10px;
+    background-color: #bdb0b0;
+    font-size: 16px;
     cursor: pointer;
 }
 
-header .top_header .container .search_box button i {
-    color: #151313;
+/* DROPDOWN CHECKBOX */
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid #915d5d;
+    background: #bdb0b0;
+    padding: 0px 28px;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
+.dropdown-btn {
+    flex: 1;
+    font-size: 14px;
+    color: #6b535b;
+    white-space: nowrap;
+}
 
+.dropdown::after {
+    content: "▼";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 12px;
+}
 
-.homepage{
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    background: #bdb0b0;
+    border: 1px solid #915d5d;
+    border-radius: 8px;
+    padding: 10px;
+    min-width: 180px;
+    z-index: 1000;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
+.dropdown-content label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #100d0d;
+    margin-bottom: -5px;
+    padding: 7px 9px;
+    border-radius: 44px;
+    cursor: pointer;
+    transition: background 1.2s;
+    background-color: #ad8d8d;
+}
+
+.dropdown-content label:hover {
+    background: rgba(155, 137, 137, 0.2);
+}
+
+.dropdown-content input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #9b8989;
+}
+
+/* HOMEPAGE */
+.homepage {
+    margin-left: 90px;
+    padding: 176px 500px 500px 48px;
+    flex: 1;
     background-color: aliceblue;
-    height: 1000px;
-    width: 100%;
-    text-align: center;
-    padding: 180px;
-   
-
 }
 
+.menu:hover~.homepage {
+    margin-left: 260px;
+}
 
-.results-section { padding: 1rem; }
-#results { display: grid; gap: 1rem; }
-.result-card { padding: 1rem; border: 1px solid #ddd; border-radius: 12px; }
-.result-head { display: flex; gap: .5rem; align-items: baseline; justify-content: space-between; }
-.result-name { font-size: 1rem; }
-.result-type { font-size: .85rem; opacity: .7; }
-.result-meta div { margin-top: .25rem; }
-.result-link { display: inline-block; margin-top: .5rem; text-decoration: underline; }
-#empty-hint { opacity: .7; margin-top: .5rem; }
+/* RESULTS SECTION */
+.results-section {
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: auto;
+}
+
+#results {
+    display: grid;
+    gap: 1rem;
+    margin-top: 10px;
+}
+
+.result-card {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f9f9f9;
+}
+
+.result-head {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.result-name {
+    font-size: 1rem;
+}
+
+.result-type {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.result-meta div {
+    margin-top: 0.25rem;
+}
+
+.result-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    text-decoration: underline;
+    color: #9b8989;
+}
+
+/* EMPTY HINT */
+#empty-hint {
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* RESPONSIV */
+@media (max-width: 768px) {
+    header {
+        left: 0;
+    }
+
+    .menu {
+        width: 60px;
+    }
+
+    .menu:hover {
+        width: 180px;
+    }
+
+    .search_box {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .homepage {
+        margin-left: 60px;
+        padding-top: 140px;
+    }
+}
