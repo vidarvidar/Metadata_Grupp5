@@ -68,3 +68,25 @@ return (
 
 export default GiftCardGrid;
 
+ <button type="submit">Search</button>
+
+  
+    <label>
+      <input type="checkbox" id="audioCheckbox">
+      Music
+    </label>
+
+    <label>
+      <input type="checkbox" id="imagesCheckbox">
+      Images
+    </label>
+
+    <label>
+      <input type="checkbox" id="pdfCheckbox">
+      Docs
+    </label>
+
+    <label>
+      <input type="checkbox" id="videoCheckbox">
+      Videos
+    </label>
