@@ -208,9 +208,11 @@ async function search(options = {}) {
           <section>
             <h2>Filename: ${escapeHTML(filename)}</h2>
             ${url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
-            <p>Metadata: ${JSON.stringify(file.metadata)}</p>
+            <div ="metadata">
+              <p>Metadata: ${JSON.stringify(file.metadata)}</p>
+            </div>
           </section>
-        `      
+        ` 
     }
       else {
 
@@ -218,7 +220,9 @@ async function search(options = {}) {
             <section>
               <h2>Filename: ${escapeHTML(filename)}</h2>
               ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
-              <p>Metadata: ${highlightedMetadata}</p>
+              <div ="metadata">
+                <p>Metadata: ${highlightedMetadata}</p>
+              </div>  
             </section>
           `  
       }

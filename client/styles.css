@@ -348,7 +348,11 @@ header .logo {
     text-decoration: underline;
     color: #d4d700;
 }
-
+.metadata {
+  font-size: small;
+  text-wrap: balance;
+  
+}
 /* EMPTY HINT */
 #empty-hint {
     opacity: 0.7;
