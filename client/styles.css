@@ -1,98 +1,391 @@
-/*
-  style.css
-  This file contains styles for the People Search App web page.
-  Each section below styles a different part of the page.
-*/
-
-/* Set the default font for the whole page */
-body {
-  font-family: Verdana;
+* {
+    padding: 0;
+    margin: 0;
+    color: rgb(110, 81, 81);
+    font-family: sans-serif;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    user-select: none;
+    scroll-behavior: smooth;
 }
 
-/* Style all images (e.g., person photos) */
+body {
+    background-color: rgb(168, 132, 132);
+    display: flex;
+}
+
+.img-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    flex-shrink: 0;
+}
+
+input,
+select,
+button {
+    border: none;
+    outline: none;
+}
+
+.img-box img {
+    width: 100%;
+}
+
+.profil {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profil h2 {
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.menu {
+    background-color: rgb(192, 147, 147);
+    width: 90px;
+    height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+    position: fixed;
+}
+
+.menu:hover {
+    width: 260px;
+}
+
+ul {
+    list-style: none;
+    position: relative;
+    height: 95%;
+}
+
+ul li a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    transition: .5s;
+}
+
+
+ul li a i {
+    font-size: 30px;
+}
+
+.content {
+    width: 100%;
+}
+
+.title-info {
+    background-color: rgb(129, 123, 123);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --main_color: #9b8989;
+    --p_color: #100d0d;
+    --bg_color: #d2c5c5;
+    --white_color: #bdb0b0;
+    --color_heading: #000000;
+    --border_color: #915d5d;
+    --sale_color: #d63434;
+}
+
+span {
+    color: var(--main_color);
+}
+
+p {
+    color: var(--p_color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color_heading);
+    font-family: "DM Sans", sans-serif;
+}
+
+img {
+    width: 100%;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    max-width: 1359px;
+}
+
+@media (max-width:1350px) {
+    .container {
+        width: 90%;
+    }
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    left: 90px;
+    right: 0;
+    background: #d2c5c5;
+    padding: 15px 20px;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu:hover~header {
+    left: 260px;
+    transition: left 0.3s ease;
+}
+
+header .top_header .container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+header .logo {
+    width: 120px;
+    height: auto;
+}
+
+/* SEARCH BOX */
+.search_box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.search_box input[type="text"] {
+    flex: 1;
+    height: 45px;
+    padding: 0 15px;
+    border-radius: 8px;
+    border: 1px solid #915d5d;
+    font-size: 16px;
+    background-color: #bdb0b0;
+}
+
+.search_box button {
+    height: 45px;
+    padding: 0 15px;
+    border-radius: 8px;
+    background-color: #9b8989;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s;
+}
+
+.search_box button:hover {
+    background-color: #8a7373;
+}
+
+/* SELECT BOX */
+.select_box select {
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid #915d5d;
+    padding: 0 10px;
+    background-color: #bdb0b0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* DROPDOWN CHECKBOX */
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid #915d5d;
+    background: #bdb0b0;
+    padding: 0px 28px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.dropdown-btn {
+    flex: 1;
+    font-size: 14px;
+    color: #6b535b;
+    white-space: nowrap;
+}
+
+.dropdown::after {
+    content: "▼";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 12px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    background: #bdb0b0;
+    border: 1px solid #915d5d;
+    border-radius: 8px;
+    padding: 10px;
+    min-width: 180px;
+    z-index: 1000;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
+.dropdown-content label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #100d0d;
+    margin-bottom: -5px;
+    padding: 7px 9px;
+    border-radius: 44px;
+    cursor: pointer;
+    transition: background 1.2s;
+    background-color: #ad8d8d;
+}
+
+.dropdown-content label:hover {
+    background: rgba(155, 137, 137, 0.2);
+}
+
+.dropdown-content input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #9b8989;
+}
+
+/* HOMEPAGE */
+.homepage {
+    margin-left: 90px;
+    padding: 176px 500px 500px 48px;
+    flex: 1;
+    background-color: aliceblue;
+}
+
+.menu:hover~.homepage {
+    margin-left: 260px;
+}
+
+/* RESULTS SECTION */
+.results-section {
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: auto;
+}
+
+#results {
+    display: grid;
+    gap: 1rem;
+    margin-top: 10px;
+}
+
+.result-card {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f9f9f9;
+}
+
+.result-head {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.result-name {
+    font-size: 1rem;
+}
+
+.result-type {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.result-meta div {
+    margin-top: 0.25rem;
+}
+
+.result-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    text-decoration: underline;
+    color: #d4d700;
+}
+
+/* EMPTY HINT */
+#empty-hint {
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* RESPONSIV */
+@media (max-width: 768px) {
+    header {
+        left: 0;
+    }
+
+    .menu {
+        width: 60px;
+    }
+
+    .menu:hover {
+        width: 180px;
+    }
+
+    .search_box {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .homepage {
+        margin-left: 60px;
+        padding-top: 140px;
+    }
+}
+
 img {
   width: 200px;      /* Set image width */
-  float: right;      /* Float images to the right of text */
-}
-
-/* Style each person's section in the results */
-section {
-  overflow: auto;                /* Clear floats inside section */
-  border-bottom: 1px solid black;/* Add a line between people */
-  margin-bottom: 20px;           /* Space below each person */
-  padding-bottom: 20px;          /* Space inside section bottom */
-}
-
-/* Style the name of each person */
-h2 {
-  color: rgb(0, 0, 0);
-}
-
-/* Style the main page heading */
-h1 {
-  color: rgb(9, 53, 74);
-}
-
-/* Optional: yellow color for special headings */
-.h2-yellow {
-  color: #cbbc1a;
-}
-
-/* Style the search input field */
-input {
-  width: 60%;
-  padding: 5px;
-}
-
-/* Style the search button */
-button {
-  padding: 5px;
-}
-
-/* Style the area where search results are shown */
-.searchResults {
-  margin-top: 20px;
+  float: right;
 }
 
 .highlight {
   background-color: rgb(238, 255, 0);
   font-weight: bold;
-}
-
-.mark {
-  background-color: rgb(255, 255, 0);
-  font-weight: bold;
-}
-
-
-/* Dropdown container */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Knappen som öppnar dropdownen */
-.dropdown-btn {
-  background-color: #f1f1f1;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-/* Dropdown-innehållet (gömt först) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 200px;
-  border: 1px solid #ccc;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  z-index: 1;
-  padding: 10px;
-}
-
-/* Visa dropdown när aktiv */
-.dropdown.show .dropdown-content {
-  display: block;
 }

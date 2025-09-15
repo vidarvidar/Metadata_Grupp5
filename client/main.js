@@ -46,7 +46,7 @@ async function ToggleDropdown() {
 }
 
 
-async function search() {
+async function search(options = {}) {
   // Hämta sökord från formfältet
   let searchTerm = document.forms.searchForm.term.value.trim();
 
@@ -62,6 +62,7 @@ async function search() {
   if (document.getElementById("imagesCheckbox")?.checked) types.push('.jpg','.jpeg', '.png', '.tif', '.tiff')
   if (document.getElementById("pdfCheckbox")?.checked) types.push('.pdf', '.xlsx')
 
+  let sort = options.sort || null; 
 
   let searchResultsElement = document.querySelector('.searchResults');
 
@@ -78,6 +79,7 @@ async function search() {
   // Om audio är valt → hämta bara mp3
   if (types.length > 0) {
     url += `&filetype=${types.join(',')}`;
+  if (sort) url += `&sort=${encodeURIComponent(sort)}`;
   }
 
   
@@ -90,6 +92,14 @@ async function search() {
     console.error("Error fetching files:", err);
   }
   console.log('allfiles log -', allFiles)
+
+  allFiles.sort((a, b) => {
+    let dateA = new Date(a.metadata.date || 0);
+    let dateB = new Date(b.metadata.date || 0);
+    return dateB - dateA; 
+  });
+
+  
   // Börja bygga HTML för resultaten
   let html = `
     <p>You searched for "<span class="highlight">${escapeHTML(searchTerm)}</span>"...</p>
@@ -141,5 +151,8 @@ async function search() {
   searchResultsElement.innerHTML = html;
 }
 
-// Rensa inputfält efter sökning
-document.forms.searchForm.term.value = '';
+document.getElementById('searchForm').addEventListener('submit', function (e) {
+  e.preventDefault();          // hindra omladdning
+  search();                    // kör din async-funktion
+  document.forms.searchForm.term.value = ''; // rensa fältet
+});

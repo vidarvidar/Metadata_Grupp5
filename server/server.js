@@ -40,7 +40,7 @@ async function query(sql, listOfValues) {
 
 
 app.get('/api/files', async (request, response) => {
-  let { searchTerm, filetype, } = request.query;
+  let { searchTerm, filetype, sort } = request.query;
 
   let sql = `SELECT * FROM files WHERE 1=1`;
   let params = [];
@@ -57,6 +57,10 @@ app.get('/api/files', async (request, response) => {
     let types = filetype.split(',').map(t => t.trim().toLowerCase());
     sql +=  ` AND LOWER(filetype) IN (${types.map(() => '?').join(',')})`;
     params.push(...types);
+  }
+
+  if (sort === "date") {
+    sql += `ORDER BY STR_TO_DATE(JSON_UNQUOTE(JSON_EXTRACT(metadata, '$.date')), '%Y-%m-%dT%H:%i:%s') DESC`;
   }
 
   let result = await query(sql, params);
