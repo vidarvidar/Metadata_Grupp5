@@ -1,50 +1,49 @@
-  // This function is called when the user submits the search form
-  // It// Escapa regex-tecken i sökordet (t.ex. +, *, ?, etc.)
-  function escapeRegExp(str) {
-    return String(str).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  }
-  // Escapa HTML-tecken i en sträng för att förhindra XSS-attacker (vet ej om detta behövs)
-  function escapeHTML(str) {
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
+// This function is called when the user submits the search form
+// It// Escapa regex-tecken i sökordet (t.ex. +, *, ?, etc.)
+function escapeRegExp(str) {
+  return String(str).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+// Escapa HTML-tecken i en sträng för att förhindra XSS-attacker (vet ej om detta behövs)
+function escapeHTML(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
-  // Gör metadata till en läsbar text
-  function stringifyMetadata(meta) {
-    if (meta == null) return '';
+// Gör metadata till en läsbar text
+function stringifyMetadata(meta) {
+  if (meta == null) return '';
 
-    if (typeof meta === 'string') return meta;
+  if (typeof meta === 'string') return meta;
 
-    if (Array.isArray(meta)) return meta.join(', ');
+  if (Array.isArray(meta)) return meta.join(', ');
 
-    if (typeof meta === 'object') {
-      try {
-        return Object.entries(meta)
-          .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : String(v)}`)
-          .join('; ');
-      } catch {
-        return JSON.stringify(meta);
-      }
+  if (typeof meta === 'object') {
+    try {
+      return Object.entries(meta)
+        .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : String(v)}`)
+        .join('; ');
+    } catch {
+      return JSON.stringify(meta);
     }
-    return String(meta);
   }
+  return String(meta);
+}
 
-  // Highlight search term in metadata safely (after escaping HTML)
-  function highlightSafe(rawMeta, searchTerm) {
-    if (!searchTerm) return escapeHTML(stringifyMetadata(rawMeta));
-    let text = escapeHTML(stringifyMetadata(rawMeta));
-    let rx = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
-    return text.replace(rx, '<span class="highlight">$1</span>');
-  }
+// Highlight search term in metadata safely (after escaping HTML)
+function highlightSafe(rawMeta, searchTerm) {
+  if (!searchTerm) return escapeHTML(stringifyMetadata(rawMeta));
+  let text = escapeHTML(stringifyMetadata(rawMeta));
+  let rx = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
+  return text.replace(rx, '<span class="highlight">$1</span>');
+}
 
 async function ToggleDropdown() {
   document.getElementById("filetypeDropdown").classList.toggle("show");
-}
-
+};
 
 async function search(options = {}) {
   // Hämta sökord från formfältet
@@ -115,14 +114,12 @@ async function search(options = {}) {
     let filename = file.filename ?? file.fileName ?? 'Unknown filename';
     let filetype = (file.filetype ?? '').toLowerCase();
     let url = file.url ?? '';
-    console.log('file - ', file, filename, filetype)
-    console.log('meta - ', file.metadata)
-    console.log('longitude - ', file.metadata.longitude)
+
     // Kolla om filen är en bild
     let isImage = imageExts.some(ext => filetype.endsWith(ext));
 
     let highlightedMetadata = highlightSafe(file.metadata, searchTerm);
-    console.log('highlighted meta -', highlightedMetadata)
+
 
     if (imageExts.includes(filetype)) {
 
@@ -227,9 +224,166 @@ async function search(options = {}) {
           `  
       }
   }  
-
   searchResultsElement.innerHTML = html;
-}
+
+  const filtersElement = document.querySelector(".filters")
+  let filterHtml = `
+  <form id="secondaryFilter">
+    <h3>File Types:</h3>
+    
+    `
+  let filterRes = await fetch('/api/filetypes')
+  let filterTypes = await filterRes.json()
+  for (let filterType of filterTypes) {
+
+    filterHtml += `
+      <label><input name="filterBox" type="checkbox" value="${filterType.filetype}" id="${filterType.filetype}Checkbox">${filterType.filetype}</label>
+    `
+  }
+  filterHtml += `
+    <button id="filterBtn" type="Submit">Filter</button>
+  </form>
+  `
+  filtersElement.innerHTML = filterHtml
+  
+
+  document.getElementById("secondaryFilter").addEventListener('submit', (e) => {
+    e.preventDefault();
+    filterCheckedBoxes = document.querySelectorAll('input[name=filterBox]:checked');
+    boxValues = []
+    for (let box of filterCheckedBoxes) {
+      console.log(box.value)
+      boxValues.push(box.value)
+    }
+    console.log("boxValues", boxValues)
+    const filterFiles = allFiles.filter((file) => boxValues.includes(file.filetype))
+    console.log('filter result', filterFiles)
+
+    let filterResultHtml = `
+    <h2>Filtered Results:</h2>
+    
+    `
+    for (let file of filterFiles) {
+      let filename = file.filename ?? file.fileName ?? 'Unknown filename';
+      let filetype = (file.filetype ?? '').toLowerCase();
+      let url = file.url ?? '';
+
+      // Kolla om filen är en bild
+      let isImage = imageExts.some(ext => filetype.endsWith(ext));
+
+      let highlightedMetadata = highlightSafe(file.metadata, searchTerm);
+
+      if (imageExts.includes(filetype)) {
+
+        if (file.metadata.longitude && file.metadata.latitude) {
+
+        let lon = file.metadata.longitude
+        let lat = file.metadata.latitude
+
+          filterResultHtml += `
+            <section>
+              <h2>Filename: ${escapeHTML(filename)}</h2>
+              ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
+              <li>
+                <p>Camera Make & Model: ${file.metadata.Make} ${file.metadata.Model}</p>
+                <p>Date/Time taken: ${file.metadata.DateTimeOriginal}</p>
+                <p>Exposure: ${file.metadata.ExposureTime} - FNumber: ${file.metadata.FNumber}
+                <p>Lat: ${lat}, Long: ${lon}
+                  <a href="https://maps.google.com/?q=${lat},${lon}">Open in Google Maps</a>
+              </li>
+                <div class="metadata">
+                  <p>Metadata: ${highlightedMetadata}</p>
+                </div>
+            </section>
+        `; console.log('html audio', filterResultHtml)
+          }
+        else {  
+          
+          filterResultHtml += `
+              <section>
+                <h2>Filename: ${escapeHTML(filename)}</h2>
+                ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
+                <li>
+                  <p>Camera Make & Model: ${file.metadata.Make} ${file.metadata.Model}</p>
+                  <p>Date/Time taken: ${file.metadata.DateTimeOriginal}</p>
+                  <p>Exposure: ${file.metadata.ExposureTime} - FNumber: ${file.metadata.FNumber}
+                </li>
+                  <div class="metadata">
+                    <p>Metadata: ${highlightedMetadata}</p>
+                  </div>
+              </section>
+            ` 
+            }
+      }
+    else if (audio_filetype.includes(filetype)) {
+
+        filterResultHtml += `
+          <section>
+            <h2>Filename: ${escapeHTML(filename)}</h2>
+            ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
+            <li>
+              <p>Artist: ${file.metadata.artist}, Album:${file.metadata.album}</p>
+              <p>Genre: ${file.metadata.genre}</p>
+              <p>Duration: ${file.metadata.duration_seconds} sec</p>
+            </li>
+            <div class="metadata">
+              <p>Metadata: ${highlightedMetadata}</p>
+            </div>
+          </section>
+      `
+       console.log('audio', filterResultHtml) }
+    else if (file.filetype == '.pdf') {
+
+        filterResultHtml += `
+          <section>
+            <h2>Filename: ${escapeHTML(filename)}</h2>
+            ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
+            <li>
+              <p>Author: ${file.metadata.author}, Language:${file.metadata.language}</p>
+              <p>Publication Date: ${file.metadata.publication_date}
+              <p>Keywords: ${file.metadata.keywords}</p>
+              <p>Page Count: ${file.metadata.page_count} sec</p>
+            </li>
+            <div class="metadata">
+              <p>Metadata: ${highlightedMetadata}</p>
+            </div>
+          </section>
+      `      
+
+    }
+    else if (video_filetype.includes(filetype)) {
+
+        filterResultHtml += `
+          <section>
+            <h2>Filename: ${escapeHTML(filename)}</h2>
+            ${url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
+            <div ="metadata">
+              <p>Metadata: ${JSON.stringify(file.metadata)}</p>
+            </div>
+          </section>
+        ` 
+    }
+    else {
+
+        filterResultHtml += `
+            <section>
+              <h2>Filename: ${escapeHTML(filename)}</h2>
+              ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
+              <div ="metadata">
+                <p>Metadata: ${highlightedMetadata}</p>
+              </div>  
+            </section>
+          `  
+      }
+  }  
+    searchResultsElement.innerHTML = filterResultHtml;
+
+  })
+ }
+
+
+
+
 
 document.getElementById('searchForm').addEventListener('submit', function (e) {
   e.preventDefault();          // hindra omladdning
