@@ -34,8 +34,12 @@ for (let raw of raws) {
   console.log(raw.filename)
   filenames.push(raw.filename)
   delete raw.filename;
+  try {
   let result = await db.execute('INSERT INTO files (fileName, filetype, metadata) VALUES (?, ?, ?)', [raw.title + '.mp3', '.mp3', raw]);
-  console.log(result)
+  }
+  catch(err) {
+    console.log(err)
+  }
 
 };
 
@@ -43,10 +47,30 @@ let pdfs = fs.readFileSync('MOCK_DATA_pdf.json')
 let raws_pdf = JSON.parse(pdfs)
 
 for (let raw_pdf of raws_pdf) {
+  try {
   let result = await db.execute('INSERT INTO files (fileName, filetype, metadata) VALUES (?,?,?)', [raw_pdf.title +'.pdf', '.pdf', raw_pdf]);
-  console.log(result)
+  }
+  catch(err) {
+    console.log(err)
+  }
 };
 
+
+let videos = fs.readFileSync('mockdata_videos.json')
+let raws_videos = JSON.parse(videos)
+
+for (let raw_video of raws_videos) {
+
+  try {
+  let result = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [raw_video.filename, raw_video.extension,raw_video.path, raw_video.metadata]);
+  }
+  catch(err) {
+    console.log(err)
+  }
+
+  
+};
+await db.end();
 
 // for (let file of filenames) {
 //   console.log(file)
