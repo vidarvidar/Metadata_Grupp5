@@ -1,0 +1,2095 @@
+[
+  {
+    "filename": "Adriana_La_Cerva_2005-12-28_191023.mov",
+    "extension": ".mov",
+    "path": "Data/Adriana_La_Cerva_2005-12-28_191023.mov",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2005-12-28T19:10:23Z"
+          },
+          "index": 0,
+          "width": 1920,
+          "height": 1080,
+          "bit_rate": "4500000",
+          "duration": "10.5",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Paulie_Gualtieri_2001-08-13_024137.avi",
+    "extension": ".avi",
+    "path": "Data/Paulie_Gualtieri_2001-08-13_024137.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "ProRes",
+            "creation_time": "2001-08-13T02:41:37Z"
+          },
+          "index": 0,
+          "width": 1280,
+          "height": 720,
+          "bit_rate": "5000000",
+          "duration": "8.2",
+          "codec_name": "prores",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Silvio_Dante_2005-09-23_214307.mp4",
+    "extension": ".mp4",
+    "path": "Data/Silvio_Dante_2005-09-23_214307.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2005-09-23T21:43:07Z"
+          },
+          "index": 0,
+          "width": 1280,
+          "height": 720,
+          "bit_rate": "3200000",
+          "duration": "15.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Christopher_Moltisanti_2003-10-30_035640.avi",
+    "extension": ".avi",
+    "path": "Data/Christopher_Moltisanti_2003-10-30_035640.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 2,
+          "tags": {
+            "encoder": "AVC",
+            "creation_time": "2003-10-30T03:56:40Z"
+          },
+          "index": 0,
+          "width": 3840,
+          "height": 2160,
+          "bit_rate": "12000000",
+          "duration": "42.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Carmela_Soprano_2002-07-05_185336.mp4",
+    "extension": ".mp4",
+    "path": "Data/Carmela_Soprano_2002-07-05_185336.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2002-07-05T18:53:36Z"
+          },
+          "index": 0,
+          "width": 1920,
+          "height": 1080,
+          "bit_rate": "4000000",
+          "duration": "12.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Tony_Soprano_2005-02-21_191628.mp4",
+    "extension": ".mp4",
+    "path": "https://data2.nssmag.com/images/galleries/36028/refdsxz.jpeg",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.265",
+            "creation_time": "2005-02-21T19:16:28Z"
+          },
+          "index": 0,
+          "width": 1920,
+          "height": 1080,
+          "bit_rate": "5000000",
+          "duration": "9.0",
+          "codec_name": "hevc",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Meadow_Soprano_2003-08-30_113114.mkv",
+    "extension": ".mkv",
+    "path": "Data/Meadow_Soprano_2003-08-30_113114.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "VP9",
+            "creation_time": "2003-08-30T11:31:14Z"
+          },
+          "index": 0,
+          "width": 854,
+          "height": 480,
+          "bit_rate": "900000",
+          "duration": "18.0",
+          "codec_name": "vp9",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "A_J_Soprano_2004-04-10_222123.mp4",
+    "extension": ".mp4",
+    "path": "Data/A_J_Soprano_2004-04-10_222123.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2004-04-10T22:21:23Z"
+          },
+          "index": 0,
+          "width": 1280,
+          "height": 720,
+          "bit_rate": "3000000",
+          "duration": "14.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Janice_Soprano_2000-06-11_103345.mov",
+    "extension": ".mov",
+    "path": "Data/Janice_Soprano_2000-06-11_103345.mov",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "ProRes",
+            "creation_time": "2000-06-11T10:33:45Z"
+          },
+          "index": 0,
+          "width": 1440,
+          "height": 1080,
+          "bit_rate": "6000000",
+          "duration": "6.5",
+          "codec_name": "prores",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Livia_Soprano_2005-02-10_130401.avi",
+    "extension": ".avi",
+    "path": "Data/Livia_Soprano_2005-02-10_130401.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2005-02-10T13:04:01Z"
+          },
+          "index": 0,
+          "width": 1920,
+          "height": 1080,
+          "bit_rate": "4200000",
+          "duration": "11.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Artie_Bucco_2001-10-05_225539.mov",
+    "extension": ".mov",
+    "path": "Data/Artie_Bucco_2001-10-05_225539.mov",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2001-10-05T22:55:39Z"
+          },
+          "index": 0,
+          "width": 1920,
+          "height": 1080,
+          "bit_rate": "3900000",
+          "duration": "16.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Charmaine_Bucco_2001-11-09_192045.avi",
+    "extension": ".avi",
+    "path": "Data/Charmaine_Bucco_2001-11-09_192045.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2001-11-09T19:20:45Z"
+          },
+          "index": 0,
+          "width": 1280,
+          "height": 720,
+          "bit_rate": "2800000",
+          "duration": "13.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Hesh_Rabkin_2004-07-12_152021.avi",
+    "extension": ".avi",
+    "path": "Data/Hesh_Rabkin_2004-07-12_152021.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 2,
+          "tags": {
+            "encoder": "AVC",
+            "creation_time": "2004-07-12T15:20:21Z"
+          },
+          "index": 0,
+          "width": 3840,
+          "height": 2160,
+          "bit_rate": "14000000",
+          "duration": "44.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Ralph_Cifaretto_2000-05-25_065734.mkv",
+    "extension": ".mkv",
+    "path": "Data/Ralph_Cifaretto_2000-05-25_065734.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2000-05-25T06:57:34Z"
+          },
+          "index": 0,
+          "width": 1920,
+          "height": 1080,
+          "bit_rate": "3700000",
+          "duration": "19.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Richie_Aprile_2000-05-05_002333.avi",
+    "extension": ".avi",
+    "path": "Data/Richie_Aprile_2000-05-05_002333.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "ProRes",
+            "creation_time": "2000-05-05T00:23:33Z"
+          },
+          "index": 0,
+          "width": 1280,
+          "height": 720,
+          "bit_rate": "4800000",
+          "duration": "9.8",
+          "codec_name": "prores",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Junior_Soprano_2004-03-21_033619.mp4",
+    "extension": ".mp4",
+    "path": "Data/Junior_Soprano_2004-03-21_033619.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2004-03-21T03:36:19Z"
+          },
+          "index": 0,
+          "width": 1920,
+          "height": 1080,
+          "bit_rate": "4100000",
+          "duration": "17.5",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Bobby_Baccalieri_2003-12-25_182415.mkv",
+    "extension": ".mkv",
+    "path": "Data/Bobby_Baccalieri_2003-12-25_182415.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2003-12-25T18:24:15Z"
+          },
+          "index": 0,
+          "width": 1280,
+          "height": 720,
+          "bit_rate": "3100000",
+          "duration": "12.5",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Phil_Leotardo_2001-02-20_013304.avi",
+    "extension": ".avi",
+    "path": "Data/Phil_Leotardo_2001-02-20_013304.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.265",
+            "creation_time": "2001-02-20T01:33:04Z"
+          },
+          "index": 0,
+          "width": 1920,
+          "height": 1080,
+          "bit_rate": "4800000",
+          "duration": "14.0",
+          "codec_name": "hevc",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Patsy_Parisi_2001-02-03_125423.avi",
+    "extension": ".avi",
+    "path": "Data/Patsy_Parisi_2001-02-03_125423.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "VP9",
+            "creation_time": "2001-02-03T12:54:23Z"
+          },
+          "index": 0,
+          "width": 854,
+          "height": 480,
+          "bit_rate": "870000",
+          "duration": "20.0",
+          "codec_name": "vp9",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Furio_Giunta_2004-11-10_013040.mp4",
+    "extension": ".mp4",
+    "path": "Data/Furio_Giunta_2004-11-10_013040.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2004-11-10T01:30:40Z"
+          },
+          "index": 0,
+          "width": 1920,
+          "height": 1080,
+          "bit_rate": "4300000",
+          "duration": "15.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Eugene_Pontecorvo_2006-09-05_133123.mp4",
+    "extension": ".mp4",
+    "path": "Data/Eugene_Pontecorvo_2006-09-05_133123.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 2,
+          "tags": {
+            "encoder": "AVC",
+            "creation_time": "2006-09-05T13:31:23Z"
+          },
+          "index": 0,
+          "width": 3840,
+          "height": 2160,
+          "bit_rate": "13500000",
+          "duration": "49.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Vito_Spatafore_2002-12-27_120302.avi",
+    "extension": ".avi",
+    "path": "Data/Vito_Spatafore_2002-12-27_120302.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2002-12-27T12:03:02Z"
+          },
+          "index": 0,
+          "width": 1280,
+          "height": 720,
+          "bit_rate": "2950000",
+          "duration": "13.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Johnny_Sack_2005-01-25_060033.mkv",
+    "extension": ".mkv",
+    "path": "Data/Johnny_Sack_2005-01-25_060033.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "ProRes",
+            "creation_time": "2005-01-25T06:00:33Z"
+          },
+          "index": 0,
+          "width": 1440,
+          "height": 1080,
+          "bit_rate": "5100000",
+          "duration": "7.0",
+          "codec_name": "prores",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Carmine_Lupertazzi_2004-07-05_092009.mkv",
+    "extension": ".mkv",
+    "path": "Data/Carmine_Lupertazzi_2004-07-05_092009.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2004-07-05T09:20:09Z"
+          },
+          "index": 0,
+          "width": 1920,
+          "height": 1080,
+          "bit_rate": "3600000",
+          "duration": "16.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Angie_Bonpensiero_2005-01-01_030819.avi",
+    "extension": ".avi",
+    "path": "Data/Angie_Bonpensiero_2005-01-01_030819.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2005-01-01T03:08:19Z"
+          },
+          "index": 0,
+          "width": 1280,
+          "height": 720,
+          "bit_rate": "3400000",
+          "duration": "12.5",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Big_Pussy_Bonpensiero_1999-08-24_100920.mp4",
+    "extension": ".mp4",
+    "path": "Data/Big_Pussy_Bonpensiero_1999-08-24_100920.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "ProRes",
+            "creation_time": "1999-08-24T10:09:20Z"
+          },
+          "index": 0,
+          "width": 1440,
+          "height": 1080,
+          "bit_rate": "4800000",
+          "duration": "8.0",
+          "codec_name": "prores",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Ginny_Sack_2004-09-01_010959.mkv",
+    "extension": ".mkv",
+    "path": "Data/Ginny_Sack_2004-09-01_010959.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "HEVC",
+            "creation_time": "2004-09-01T01:09:59Z"
+          },
+          "index": 0,
+          "width": 1920,
+          "height": 1080,
+          "bit_rate": "3900000",
+          "duration": "15.0",
+          "codec_name": "hevc",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Rosalie_Aprile_2001-06-09_080348.avi",
+    "extension": ".avi",
+    "path": "Data/Rosalie_Aprile_2001-06-09_080348.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "VP9",
+            "creation_time": "2001-06-09T08:03:48Z"
+          },
+          "index": 0,
+          "width": 854,
+          "height": 480,
+          "bit_rate": "950000",
+          "duration": "18.0",
+          "codec_name": "vp9",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Carmela_Mom_2000-04-13_193047.avi",
+    "extension": ".avi",
+    "path": "Data/Carmela_Mom_2000-04-13_193047.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "H.264",
+            "creation_time": "2000-04-13T19:30:47Z"
+          },
+          "index": 0,
+          "width": 1920,
+          "height": 1080,
+          "bit_rate": "3600000",
+          "duration": "14.0",
+          "codec_name": "h264",
+          "codec_type": "video"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Bobby_Bacala_2006-03-05_055810.avi",
+    "extension": ".avi",
+    "path": "Data/Bobby_Bacala_2006-03-05_055810.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2006-03-05T05:58:10Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2006-03-05T05:58:10Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Paulie_Walnuts_1999-10-19_064733.mp4",
+    "extension": ".mp4",
+    "path": "Data/Paulie_Walnuts_1999-10-19_064733.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "1999-10-19T06:47:33Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "1999-10-19T06:47:33Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Dr_Melfi_2000-08-08_153203.mov",
+    "extension": ".mov",
+    "path": "Data/Dr_Melfi_2000-08-08_153203.mov",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2000-08-08T15:32:03Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2000-08-08T15:32:03Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Gloria_Trillo_1999-08-06_233605.mov",
+    "extension": ".mov",
+    "path": "Data/Gloria_Trillo_1999-08-06_233605.mov",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "1999-08-06T23:36:05Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "1999-08-06T23:36:05Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Gigi_Cestone_2004-11-17_024959.avi",
+    "extension": ".avi",
+    "path": "Data/Gigi_Cestone_2004-11-17_024959.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2004-11-17T02:49:59Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2004-11-17T02:49:59Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Jackie_Aprile_2000-10-01_104746.mp4",
+    "extension": ".mp4",
+    "path": "Data/Jackie_Aprile_2000-10-01_104746.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2000-10-01T10:47:46Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2000-10-01T10:47:46Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Jackie_Aprile_Jr_2006-05-26_235750.mp4",
+    "extension": ".mp4",
+    "path": "Data/Jackie_Aprile_Jr_2006-05-26_235750.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2006-05-26T23:57:50Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2006-05-26T23:57:50Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Tracee_2004-03-01_020841.mov",
+    "extension": ".mov",
+    "path": "Data/Tracee_2004-03-01_020841.mov",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2004-03-01T02:08:41Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2004-03-01T02:08:41Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Tony_Blundetto_2006-05-22_171111.avi",
+    "extension": ".avi",
+    "path": "Data/Tony_Blundetto_2006-05-22_171111.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2006-05-22T17:11:11Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2006-05-22T17:11:11Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Little_Carmine_2002-03-03_140759.mov",
+    "extension": ".mov",
+    "path": "Data/Little_Carmine_2002-03-03_140759.mov",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2002-03-03T14:07:59Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2002-03-03T14:07:59Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Feech_LaManna_2000-05-14_160346.avi",
+    "extension": ".avi",
+    "path": "Data/Feech_LaManna_2000-05-14_160346.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2000-05-14T16:03:46Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2000-05-14T16:03:46Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Brian_Cammarata_2003-03-09_161952.mov",
+    "extension": ".mov",
+    "path": "Data/Brian_Cammarata_2003-03-09_161952.mov",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2003-03-09T16:19:52Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2003-03-09T16:19:52Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Ray_Curto_2001-10-30_235842.avi",
+    "extension": ".avi",
+    "path": "Data/Ray_Curto_2001-10-30_235842.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2001-10-30T23:58:42Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2001-10-30T23:58:42Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Albert_Barese_2004-01-08_030826.avi",
+    "extension": ".avi",
+    "path": "Data/Albert_Barese_2004-01-08_030826.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2004-01-08T03:08:26Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2004-01-08T03:08:26Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Salvatore_Satriel_2000-07-16_003725.avi",
+    "extension": ".avi",
+    "path": "Data/Salvatore_Satriel_2000-07-16_003725.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2000-07-16T00:37:25Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2000-07-16T00:37:25Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Father_Phil_2006-10-08_150553.mkv",
+    "extension": ".mkv",
+    "path": "Data/Father_Phil_2006-10-08_150553.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2006-10-08T15:05:53Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2006-10-08T15:05:53Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Caitlin_Rinaldi_2004-04-06_010849.mkv",
+    "extension": ".mkv",
+    "path": "Data/Caitlin_Rinaldi_2004-04-06_010849.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2004-04-06T01:08:49Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2004-04-06T01:08:49Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Irina_Peltsin_2006-06-23_005719.mov",
+    "extension": ".mov",
+    "path": "Data/Irina_Peltsin_2006-06-23_005719.mov",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2006-06-23T00:57:19Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2006-06-23T00:57:19Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Valentina_La_Paz_2004-04-19_223740.mkv",
+    "extension": ".mkv",
+    "path": "Data/Valentina_La_Paz_2004-04-19_223740.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2004-04-19T22:37:40Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2004-04-19T22:37:40Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Aaron_Arkaway_2005-02-19_205505.mp4",
+    "extension": ".mp4",
+    "path": "Data/Aaron_Arkaway_2005-02-19_205505.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2005-02-19T20:55:05Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2005-02-19T20:55:05Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Kelli_Lombardo_2002-12-24_013615.mkv",
+    "extension": ".mkv",
+    "path": "Data/Kelli_Lombardo_2002-12-24_013615.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2002-12-24T01:36:15Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2002-12-24T01:36:15Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Tony_Sirico_2005-12-27_175547.mp4",
+    "extension": ".mp4",
+    "path": "Data/Tony_Sirico_2005-12-27_175547.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2005-12-27T17:55:47Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2005-12-27T17:55:47Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Dominic_Parese_2005-07-11_213524.mp4",
+    "extension": ".mp4",
+    "path": "Data/Dominic_Parese_2005-07-11_213524.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2005-07-11T21:35:24Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2005-07-11T21:35:24Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Larry_Barese_2006-10-31_234207.mov",
+    "extension": ".mov",
+    "path": "Data/Larry_Barese_2006-10-31_234207.mov",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2006-10-31T23:42:07Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2006-10-31T23:42:07Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Johnny_Sacramoni_2007-04-21_134315.avi",
+    "extension": ".avi",
+    "path": "Data/Johnny_Sacramoni_2007-04-21_134315.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2007-04-21T13:43:15Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2007-04-21T13:43:15Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Noah_Tannenbaum_2001-03-22_210706.mov",
+    "extension": ".mov",
+    "path": "Data/Noah_Tannenbaum_2001-03-22_210706.mov",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2001-03-22T21:07:06Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2001-03-22T21:07:06Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Blanca_Selgado_2001-11-12_144956.mkv",
+    "extension": ".mkv",
+    "path": "Data/Blanca_Selgado_2001-11-12_144956.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2001-11-12T14:49:56Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2001-11-12T14:49:56Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Hunter_Scoppa_2003-05-29_215259.mkv",
+    "extension": ".mkv",
+    "path": "Data/Hunter_Scoppa_2003-05-29_215259.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2003-05-29T21:52:59Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2003-05-29T21:52:59Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Jean_Almeida_2003-08-30_005242.avi",
+    "extension": ".avi",
+    "path": "Data/Jean_Almeida_2003-08-30_005242.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2003-08-30T00:52:42Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2003-08-30T00:52:42Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Annette_Scoppa_2005-04-20_010138.mp4",
+    "extension": ".mp4",
+    "path": "Data/Annette_Scoppa_2005-04-20_010138.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2005-04-20T01:01:38Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2005-04-20T01:01:38Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Corky_Caporale_1999-12-07_012643.mp4",
+    "extension": ".mp4",
+    "path": "Data/Corky_Caporale_1999-12-07_012643.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "1999-12-07T01:26:43Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "1999-12-07T01:26:43Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Mikey_Palmice_2004-02-12_054214.avi",
+    "extension": ".avi",
+    "path": "Data/Mikey_Palmice_2004-02-12_054214.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2004-02-12T05:42:14Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2004-02-12T05:42:14Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Jimmy_Altieri_2000-05-12_042043.mp4",
+    "extension": ".mp4",
+    "path": "Data/Jimmy_Altieri_2000-05-12_042043.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2000-05-12T04:20:43Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2000-05-12T04:20:43Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Patsy_Parisi_Twin_2005-08-23_172714.mp4",
+    "extension": ".mp4",
+    "path": "Data/Patsy_Parisi_Twin_2005-08-23_172714.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2005-08-23T17:27:14Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2005-08-23T17:27:14Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Angelo_Garepe_1999-06-28_141910.mp4",
+    "extension": ".mp4",
+    "path": "Data/Angelo_Garepe_1999-06-28_141910.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "1999-06-28T14:19:10Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "1999-06-28T14:19:10Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Rusty_Milletto_2007-05-12_134719.mp4",
+    "extension": ".mp4",
+    "path": "Data/Rusty_Milletto_2007-05-12_134719.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2007-05-12T13:47:19Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2007-05-12T13:47:19Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Carlo_Gervasi_2001-01-12_160014.avi",
+    "extension": ".avi",
+    "path": "Data/Carlo_Gervasi_2001-01-12_160014.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2001-01-12T16:00:14Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2001-01-12T16:00:14Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Benny_Fazio_2005-12-29_094655.mp4",
+    "extension": ".mp4",
+    "path": "Data/Benny_Fazio_2005-12-29_094655.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2005-12-29T09:46:55Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2005-12-29T09:46:55Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Perry_Annunziata_2003-09-05_112627.avi",
+    "extension": ".avi",
+    "path": "Data/Perry_Annunziata_2003-09-05_112627.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2003-09-05T11:26:27Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2003-09-05T11:26:27Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Murphy_Fusco_2000-01-03_152711.avi",
+    "extension": ".avi",
+    "path": "Data/Murphy_Fusco_2000-01-03_152711.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2000-01-03T15:27:11Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2000-01-03T15:27:11Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Silvio_Jr_2005-12-24_085846.avi",
+    "extension": ".avi",
+    "path": "Data/Silvio_Jr_2005-12-24_085846.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2005-12-24T08:58:46Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2005-12-24T08:58:46Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Petey_B_2000-10-24_031446.mkv",
+    "extension": ".mkv",
+    "path": "Data/Petey_B_2000-10-24_031446.mkv",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2000-10-24T03:14:46Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2000-10-24T03:14:46Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Patsy_Jr_2002-07-15_201505.avi",
+    "extension": ".avi",
+    "path": "Data/Patsy_Jr_2002-07-15_201505.avi",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2002-07-15T20:15:05Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2002-07-15T20:15:05Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Hugh_DeAngelis_2004-11-11_020629.mp4",
+    "extension": ".mp4",
+    "path": "Data/Hugh_DeAngelis_2004-11-11_020629.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2004-11-11T02:06:29Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2004-11-11T02:06:29Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "john_oskarsson_2004-11-11_020629.mp4",
+    "extension": ".mp4",
+    "path": "Data/Hugh_DeAngelis_2004-11-11_020629.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2004-11-11T02:06:29Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2004-11-11T02:06:29Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  },
+  {
+    "filename": "Gabriella_Dante_2000-06-09_160621.mp4",
+    "extension": ".mp4",
+    "path": "Data/Gabriella_Dante_2000-06-09_160621.mp4",
+    "metadata": {
+      "streams": [
+        {
+          "refs": 1,
+          "tags": {
+            "encoder": "AVC Coding",
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "creation_time": "2000-06-09T16:06:21Z"
+          },
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "creation_time": "2000-06-09T16:06:21Z"
+          },
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    }
+  }
+]
