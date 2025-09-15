@@ -70,7 +70,7 @@ for (let raw_video of raws_videos) {
 
   
 };
-
+await db.end();
 
 // for (let file of filenames) {
 //   console.log(file)
