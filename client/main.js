@@ -98,6 +98,8 @@ async function search() {
 
   // Vanliga bild-ändelser
   let imageExts = ['.jpg', '.jpeg', '.png', '.tif', '.tiff'];
+  let audio_filetype = ['.mp3', '.WAV','.aac','.ogg','.wma', '.flac', '.aiff', '.aif']
+  let video_filetype = ['.mp4', '.avi', '.mkv', '.mov']
 
   for (let file of allFiles) {
     let filename = file.filename ?? file.fileName ?? 'Unknown filename';
@@ -110,32 +112,106 @@ async function search() {
     let isImage = imageExts.some(ext => filetype.endsWith(ext));
 
     let highlightedMetadata = highlightSafe(file.metadata, searchTerm);
+    console.log('highlighted meta -', highlightedMetadata)
 
-    if (file.metadata.longitude && file.metadata.latitude) {
+    if (imageExts.includes(filetype)) {
+
+        if (file.metadata.longitude && file.metadata.latitude) {
+
         let lon = file.metadata.longitude
         let lat = file.metadata.latitude
+
+          html += `
+            <section>
+              <h2>Filename: ${escapeHTML(filename)}</h2>
+              ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
+              <li>
+                <p>Camera Make & Model: ${file.metadata.Make} ${file.metadata.Model}</p>
+                <p>Date/Time taken: ${file.metadata.DateTimeOriginal}</p>
+                <p>Exposure: ${file.metadata.ExposureTime} - FNumber: ${file.metadata.FNumber}
+                <p>Lat: ${lat}, Long: ${lon}
+                  <a href="https://maps.google.com/?q=${lat},${lon}">Open in Google Maps</a>
+              </li>
+                <div class="metadata">
+                  <p>Metadata: ${highlightedMetadata}</p>
+                </div>
+            </section>
+        `;
+          }
+        else {  
+          
+          html += `
+              <section>
+                <h2>Filename: ${escapeHTML(filename)}</h2>
+                ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
+                <li>
+                  <p>Camera Make & Model: ${file.metadata.Make} ${file.metadata.Model}</p>
+                  <p>Date/Time taken: ${file.metadata.DateTimeOriginal}</p>
+                  <p>Exposure: ${file.metadata.ExposureTime} - FNumber: ${file.metadata.FNumber}
+                </li>
+                  <div class="metadata">
+                    <p>Metadata: ${highlightedMetadata}</p>
+                  </div>
+              </section>
+            ` 
+            }
+      }
+    else if (audio_filetype.includes(filetype)) {
 
         html += `
           <section>
             <h2>Filename: ${escapeHTML(filename)}</h2>
             ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
-            <p>Metadata: ${highlightedMetadata}</p>
-              <a href="https://maps.google.com/?q=${lat},${lon}">Open in Google Maps</a>
+            <li>
+              <p>Artist: ${file.metadata.artist}, Album:${file.metadata.album}</p>
+              <p>Genre: ${file.metadata.genre}</p>
+              <p>Duration: ${file.metadata.duration_seconds} sec</p>
+            </li>
+            <div class="metadata">
+              <p>Metadata: ${highlightedMetadata}</p>
+            </div>
           </section>
-
-      `;
+      `
       }
-    
-    else {
+    else if (file.filetype == '.pdf') {
 
-      html += `
+        html += `
           <section>
             <h2>Filename: ${escapeHTML(filename)}</h2>
             ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
-            <p>Metadata: ${highlightedMetadata}</p>
+            <li>
+              <p>Author: ${file.metadata.author}, Language:${file.metadata.language}</p>
+              <p>Publication Date: ${file.metadata.publication_date}
+              <p>Keywords: ${file.metadata.keywords}</p>
+              <p>Page Count: ${file.metadata.page_count} sec</p>
+            </li>
+            <div class="metadata">
+              <p>Metadata: ${highlightedMetadata}</p>
+            </div>
           </section>
-        `  
+      `      
+
     }
+    else if (video_filetype.includes(filetype)){
+
+        html += `
+          <section>
+            <h2>Filename: ${escapeHTML(filename)}</h2>
+            ${url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
+            <p>Metadata: ${JSON.stringify(file.metadata)}</p>
+          </section>
+        `      
+    }
+      else {
+
+        html += `
+            <section>
+              <h2>Filename: ${escapeHTML(filename)}</h2>
+              ${isImage && url ? `<img src="${escapeHTML(url)}" alt="${escapeHTML(filename)}">` : ''}
+              <p>Metadata: ${highlightedMetadata}</p>
+            </section>
+          `  
+      }
   }  
 
   searchResultsElement.innerHTML = html;
