@@ -200,6 +200,16 @@ app.get('/api/filetypes', async (request, response) => {
   // Send the result as a JSON response
   response.json(result);
 });
+app.get('/api/genres', async (request, response) => {
+  // Query the database for all people
+  let result = await query(`
+    SELECT DISTINCT metadata -> '$.genre' as Genres
+    FROM files
+    WHERE metadata -> '$.genre' IS NOT NULL;
+  `);
+  // Send the result as a JSON response
+  response.json(result);
+});
 
 // REST API route: Search for people by name or hobby
 // When a GET request is made to /api/people/:searchTerm, search the database

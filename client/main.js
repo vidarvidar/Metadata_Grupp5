@@ -227,17 +227,32 @@ async function search(options = {}) {
   searchResultsElement.innerHTML = html;
 
   const filtersElement = document.querySelector(".filters")
+
   let filterHtml = `
   <form id="secondaryFilter">
     <h3>File Types:</h3>
     
-    `
-  let filterRes = await fetch('/api/filetypes')
-  let filterTypes = await filterRes.json()
+    `;
+
+  let filterRes = await fetch('/api/filetypes');
+  let filterTypes = await filterRes.json();
+  let genreRes = await fetch('/api/genres');
+  let genres = await genreRes.json();
+  console.log('genres', genres)
+  // Generate checkboxes for filetypes and genres
   for (let filterType of filterTypes) {
 
     filterHtml += `
       <label><input name="filterBox" type="checkbox" value="${filterType.filetype}" id="${filterType.filetype}Checkbox">${filterType.filetype}</label>
+    `
+  }
+  filterHtml += `
+    <br>
+  `
+  for (let genre of genres) {
+
+      filterHtml += `
+      <label><input name="filterBox" type="checkbox" value="${genre.Genres}" id="${genre.Genres}Checkbox">${genre.Genres}</label>
     `
   }
   filterHtml += `
@@ -256,7 +271,7 @@ async function search(options = {}) {
       boxValues.push(box.value)
     }
     console.log("boxValues", boxValues)
-    const filterFiles = allFiles.filter((file) => boxValues.includes(file.filetype))
+    const filterFiles = allFiles.filter((file) => boxValues.includes(file.filetype) || boxValues.includes(file.metadata.genre))
     console.log('filter result', filterFiles)
 
     let filterResultHtml = `
@@ -295,7 +310,7 @@ async function search(options = {}) {
                   <p>Metadata: ${highlightedMetadata}</p>
                 </div>
             </section>
-        `; console.log('html audio', filterResultHtml)
+        `;
           }
         else {  
           
@@ -331,7 +346,7 @@ async function search(options = {}) {
             </div>
           </section>
       `
-       console.log('audio', filterResultHtml) }
+      }
     else if (file.filetype == '.pdf') {
 
         filterResultHtml += `
@@ -380,9 +395,6 @@ async function search(options = {}) {
 
   })
  }
-
-
-
 
 
 document.getElementById('searchForm').addEventListener('submit', function (e) {
