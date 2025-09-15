@@ -44,12 +44,10 @@ function highlightSafe(rawMeta, searchTerm) {
 async function ToggleDropdown() {
   document.getElementById("filetypeDropdown").classList.toggle("show");
 };
-
+// Searches database on api/files endpoint
 async function search(options = {}) {
   // Hämta sökord från formfältet
   let searchTerm = document.forms.searchForm.term.value.trim();
-
-
 
   let types = []
   // Läs checkboxar
@@ -248,6 +246,7 @@ async function search(options = {}) {
   }
   filterHtml += `
     <br>
+    <h3>Music Genres:</h3>
   `
   for (let genre of genres) {
 
@@ -256,6 +255,7 @@ async function search(options = {}) {
     `
   }
   filterHtml += `
+    <br>
     <button id="filterBtn" type="Submit">Filter</button>
   </form>
   `
