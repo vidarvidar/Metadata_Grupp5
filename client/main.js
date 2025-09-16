@@ -107,7 +107,7 @@ async function search(options = {}) {
   let imageExts = ['.jpg', '.jpeg', '.png', '.tif', '.tiff'];
   let audio_filetype = ['.mp3', '.WAV','.aac','.ogg','.wma', '.flac', '.aiff', '.aif']
   let video_filetype = ['.mp4', '.avi', '.mkv', '.mov']
-
+  // processing response and rendering for html - perhaps should be made into its own function
   for (let file of allFiles) {
     let filename = file.filename ?? file.fileName ?? 'Unknown filename';
     let filetype = (file.filetype ?? '').toLowerCase();
@@ -264,20 +264,22 @@ async function search(options = {}) {
 
   document.getElementById("secondaryFilter").addEventListener('submit', (e) => {
     e.preventDefault();
+    // collects all checked boxes and pushes values into a list through which allFiles is filtered
     filterCheckedBoxes = document.querySelectorAll('input[name=filterBox]:checked');
     boxValues = []
     for (let box of filterCheckedBoxes) {
       console.log(box.value)
       boxValues.push(box.value)
-    }
+    };
     console.log("boxValues", boxValues)
     const filterFiles = allFiles.filter((file) => boxValues.includes(file.filetype) || boxValues.includes(file.metadata.genre))
     console.log('filter result', filterFiles)
 
     let filterResultHtml = `
-    <h2>Filtered Results:</h2>
+    <h2>Filtered Results: ${filterFiles.length} files</h2>
     
-    `
+    `;
+
     for (let file of filterFiles) {
       let filename = file.filename ?? file.fileName ?? 'Unknown filename';
       let filetype = (file.filetype ?? '').toLowerCase();
