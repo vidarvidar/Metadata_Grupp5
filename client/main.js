@@ -246,10 +246,7 @@ async function search(options = {}) {
   let filterTypes = await filterRes.json();
   let genreRes = await fetch('/api/genres');
   let genres = await genreRes.json();
-  let rawMeta = await fetch('/api/metadata')
-  let jsonMeta = await rawMeta.json()
-  console.log('rawmeta', jsonMeta)
-  console.log('genres', genres)
+
   // Generate checkboxes for filetypes and genres
   for (let filterType of filterTypes) {
 

@@ -224,7 +224,7 @@ app.get('/api/genres', async (request, response) => {
 
 app.get('/api/metadata/', async (request, response) => {
   let result = await query(`
-    SELECT DISTINCT JSON_KEYS(metadata)
+    SELECT DISTINCT (JSON_KEYS(metadata)) 'Keys'
     FROM files
   `,);
   // Send the result as a JSON response
