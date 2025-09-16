@@ -405,7 +405,7 @@ img {
 .date-filter h3 {
   font-size: 1rem;
   color: #a4a4b8;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   font-weight: 600;
@@ -458,5 +458,62 @@ img {
 }
 
 #dateFilterForm button:active {
+  transform: scale(0.97);
+}
+
+
+/* Om du har fler filterelement inuti */
+.filters .filter-group {
+  margin-bottom: 25px;
+}
+
+.filters label {
+  display: block;
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 0.1px;
+}
+
+.filters input[type="text"],
+.filters input[type="date"],
+.filters select {
+  width: 100%;
+  padding: 8px 10px;
+  background: #2a2a40;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.filters input[type="text"]:focus,
+.filters input[type="date"]:focus,
+.filters select:focus {
+  border: 1px solid #4cafef;
+  background: #3a3a55;
+}
+
+/* Knappstil */
+.filters button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #4cafef;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.1s ease;
+}
+
+.filters button:hover {
+  background: #3b9dde;
+}
+
+.filters button:active {
   transform: scale(0.97);
 }
