@@ -45,7 +45,7 @@ async function ToggleDropdown() {
   document.getElementById("filetypeDropdown").classList.toggle("show");
 };
 // Searches database on api/files endpoint
-async function search() {
+async function search(options = {}) {
   // Hämta sökord från formfältet
   let searchTerm = document.forms.searchForm.term.value.trim();
 
@@ -60,7 +60,7 @@ async function search() {
   if (document.getElementById("imagesCheckbox")?.checked) types.push('.jpg','.jpeg', '.png', '.tif', '.tiff')
   if (document.getElementById("pdfCheckbox")?.checked) types.push('.pdf', '.xlsx')
 
-  
+  let sort = options.sort || null; 
 
   let searchResultsElement = document.querySelector('.searchResults');
 
@@ -70,7 +70,8 @@ async function search() {
     return;
   }
 
- 
+
+  
   // Bygg query-parametrar
   let url = `/api/files?searchTerm=${encodeURIComponent(searchTerm)}`;
 
@@ -91,6 +92,9 @@ async function search() {
   }
   console.log('allfiles log -', allFiles)
 
+ 
+
+  
   // Börja bygga HTML för resultaten
   let html = `
     <p>You searched for "<span class="highlight">${escapeHTML(searchTerm)}</span>"...</p>
@@ -395,13 +399,4 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
   e.preventDefault();          // hindra omladdning
   search();                    // kör din async-funktion
   document.forms.searchForm.term.value = ''; // rensa fältet
-});
-
-// stäng dropdown när klickar utanför
-document.addEventListener('click', function (e) {
-  const dropdown = document.getElementById('filetypeDropdown');
-  if (!dropdown) return;                 
-  // om klick innanför, gör inget
-  if (e.target.closest('#filetypeDropdown')) return;
-  dropdown.classList.remove('show');     // annars stäng
 });
