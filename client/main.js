@@ -220,7 +220,7 @@ async function search(options = {}) {
           `  
       }
   };
-    
+
   searchResultsElement.innerHTML = html;
 
   const filtersElement = document.querySelector(".filters")
@@ -399,6 +399,14 @@ async function search(options = {}) {
   })
  };
 
+// stäng dropdown när klickar utanför
+document.addEventListener('click', function (e) {
+  const dropdown = document.getElementById('filetypeDropdown');
+  if (!dropdown) return;                
+  // om klick innanför, gör inget
+  if (e.target.closest('#filetypeDropdown')) return;
+  dropdown.classList.remove('show');     // annars stäng
+}); 
 
 document.getElementById('searchForm').addEventListener('submit', function (e) {
   e.preventDefault();          // hindra omladdning
