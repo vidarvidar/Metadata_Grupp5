@@ -22,28 +22,20 @@
                 <div class="img-box">
                     <img src="Data/image.png" alt="Profile">
                 </div>
-                <h2>Group 5</h2>
+                <h2>Metadata files</h2>
             </li>
-            <li>
-                <a class="active" href="#">
-                    <i class="fas fa-home"></i>
-                    <p>Home</p>
-                </a>
-            </li>
-            <li>
-                <a href="Vidar,Alaa,Isra,John,Max">
-                    <i class="fas fa-user"></i>
-                    <p>Group members</p>
-                </a>
-            </li>
-            <li>
-                <a href="files">
-                    <i class="fas fa-table"></i>
-                    <p>All files</p>
-                </a>
-            </li>
-            
-        </a>
+
+            <li class="date-filter">
+                <h3>Filtrering efter datum</h3>
+                <form id="dateFilterForm">
+                    <label for="dateFrom">från:</label>
+                    <input type="date" id="dateFrom" name="dateFrom">
+
+                    <label for="dateTo">till:</label>
+                    <input type="date" id="dateTo" name="dateTo">
+
+                    <button type="submit">Filtrera</button>
+                </form>
             </li>
         </ul>
     </div>
