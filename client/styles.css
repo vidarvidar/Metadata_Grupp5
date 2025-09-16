@@ -48,16 +48,13 @@ button {
 
 .menu {
     background-color: rgb(192, 147, 147);
-    width: 90px;
+    width: 260px;
     height: 100vh;
     padding: 20px;
     overflow: hidden;
     position: fixed;
 }
 
-.menu:hover {
-    width: 260px;
-}
 
 ul {
     list-style: none;
@@ -96,7 +93,7 @@ ul li a i {
     margin: 10px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 
 :root {
     --main_color: #9b8989;
@@ -146,7 +143,7 @@ img {
 header {
     position: fixed;
     top: 0;
-    left: 90px;
+    left: 260px;
     right: 0;
     background: #d2c5c5;
     padding: 15px 20px;
@@ -154,10 +151,7 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.menu:hover~header {
-    left: 260px;
-    transition: left 0.3s ease;
-}
+
 
 header .top_header .container {
     display: flex;
@@ -299,14 +293,10 @@ header .logo {
 
 /* HOMEPAGE */
 .homepage {
-    margin-left: 90px;
+    margin-left: 260px;
     padding: 176px 500px 500px 48px;
     flex: 1;
     background-color: aliceblue;
-}
-
-.menu:hover~.homepage {
-    margin-left: 260px;
 }
 
 /* RESULTS SECTION */
@@ -402,4 +392,71 @@ img {
 .highlight {
   background-color: rgb(238, 255, 0);
   font-weight: bold;
+}
+
+.date-filter {
+  margin-top: 25px;
+  padding: 18px 15px;
+  background: #2a2a40;
+  border-radius: 14px;
+  box-shadow: inset 0 0 4px rgba(255,255,255,0.05);
+}
+
+.date-filter h3 {
+  font-size: 1rem;
+  color: #a4a4b8;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+}
+
+#dateFilterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#dateFilterForm label {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 4px;
+}
+
+#dateFilterForm input[type="date"] {
+  padding: 8px 10px;
+  background: #3a3a55;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+#dateFilterForm input[type="date"]:focus {
+  border: 1px solid #4cafef;
+  background: #41415f;
+}
+
+/* === KNAPP === */
+#dateFilterForm button {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: #4cafef;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.1s ease;
+}
+
+#dateFilterForm button:hover {
+  background: #3b9dde;
+}
+
+#dateFilterForm button:active {
+  transform: scale(0.97);
 }
