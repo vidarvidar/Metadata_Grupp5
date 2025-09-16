@@ -51,7 +51,6 @@ async function search(options = {}) {
   let searchTerm = document.forms.searchForm.term.value.trim();
 
 
-
   let types = []
   // Läs checkboxar
   
@@ -71,6 +70,15 @@ async function search(options = {}) {
     searchResultsElement.innerHTML = '<p>Found 0 results.</p>';
     return;
   }
+
+  document.getElementById('dateFilterForm').addEventListener('submit', e => {
+    e.preventDefault();
+
+    let from = document.getElementById('dateFrom').value;
+    let to   = document.getElementById('DateTo').value;
+
+    search({dateFrom: from, dateTo: to});
+  });
 
   
   // Bygg query-parametrar

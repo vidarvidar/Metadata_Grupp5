@@ -40,7 +40,7 @@ async function query(sql, listOfValues) {
 
 
 app.get('/api/files', async (request, response) => {
-  let { searchTerm, filetype, sort } = request.query;
+  let { searchTerm, filetype, sort, dateFrom, dateTo } = request.query;
 
   let sql = `SELECT * FROM files WHERE 1=1`;
   let params = [];
@@ -59,6 +59,17 @@ app.get('/api/files', async (request, response) => {
     params.push(...types);
   }
 
+  if (dateFrom) {
+    sql += `AND JSON_EXTRACT(metadata, '$.date') >= ?`;
+    params.push(dateFrom);
+  }
+
+  if (dateTo) {
+    sql += `AND JSON_EXTRACT(metadata, '$.date') <= ?`;
+    params.push(dateTo)
+  }
+
+  
   if (sort === "date") {
     sql += `ORDER BY STR_TO_DATE(JSON_UNQUOTE(JSON_EXTRACT(metadata, '$.date')), '%Y-%m-%dT%H:%i:%s') DESC`;
   }
