@@ -222,18 +222,11 @@ app.get('/api/genres', async (request, response) => {
   response.json(result);
 });
 
-// REST API route: Search for people by name or hobby
-// When a GET request is made to /api/people/:searchTerm, search the database
-app.get('/api/metadata/:cat', async (request, response) => {
-  // Get the search term from the URL and add % for SQL LIKE (partial match)
-  let cat = `%${request.params.cat}%`;
-  console.log(cat)
-  // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
+app.get('/api/metadata/', async (request, response) => {
   let result = await query(`
-    SELECT JSON_KEYS(metadata)
+    SELECT DISTINCT JSON_KEYS(metadata)
     FROM files
-    WHERE filetype LIKE LOWER(?)
-  `, [cat]);
+  `,);
   // Send the result as a JSON response
   
   response.json(result);
