@@ -125,8 +125,16 @@ app.get('/api/music/:searchTerm', async (request, response) => {
   // Send the result as a JSON response
   response.json(result);
 });
+app.get('/api/filetypes', async (request, response) => {
+  let result = await query(`
+      SELECT DISTINCT filetype FROM files;
+  `,);
+  // Send the result as a JSON response
+  
+  response.json(result);
+});
 
-app.get('/api/metadata/', async (request, response) => {
+app.get('/api/metadata', async (request, response) => {
   let result = await query(`
     SELECT DISTINCT (JSON_KEYS(metadata)) 'Keys'
     FROM files

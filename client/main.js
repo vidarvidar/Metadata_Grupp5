@@ -76,9 +76,8 @@ async function search() {
 
   // Om audio är valt → hämta bara mp3
   if (types.length > 0) {
-    url += `&filetype=${types.join(',')}`;
-  if (sort) url += `&sort=${encodeURIComponent(sort)}`;
-  }
+    url += `&filetype=${types.join(',')}`
+  };
 
   
   // Hämta från API
