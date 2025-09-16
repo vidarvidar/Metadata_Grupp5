@@ -414,3 +414,12 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
   search();                    // kör din async-funktion
   document.forms.searchForm.term.value = ''; // rensa fältet
 });
+
+// stäng dropdown när klickar utanför
+document.addEventListener('click', function (e) {
+  const dropdown = document.getElementById('filetypeDropdown');
+  if (!dropdown) return;                 
+  // om klick innanför, gör inget
+  if (e.target.closest('#filetypeDropdown')) return;
+  dropdown.classList.remove('show');     // annars stäng
+});
