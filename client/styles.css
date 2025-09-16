@@ -198,7 +198,17 @@ header .logo {
 .search_box button:hover {
     background-color: #8a7373;
 }
-
+#filterBtn {
+    height: 35px;
+    padding: 0 10px;
+    border-radius: 6px;
+    background-color: #9b8989;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s;
+}
 /* SELECT BOX */
 .select_box select {
     height: 45px;
@@ -338,7 +348,11 @@ header .logo {
     text-decoration: underline;
     color: #d4d700;
 }
-
+.metadata {
+  font-size: small;
+  text-wrap: balance;
+  
+}
 /* EMPTY HINT */
 #empty-hint {
     opacity: 0.7;
