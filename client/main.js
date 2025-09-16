@@ -45,7 +45,7 @@ async function ToggleDropdown() {
   document.getElementById("filetypeDropdown").classList.toggle("show");
 };
 // Searches database on api/files endpoint
-async function search(options = {}) {
+async function search() {
   // Hämta sökord från formfältet
   let searchTerm = document.forms.searchForm.term.value.trim();
 
@@ -60,7 +60,7 @@ async function search(options = {}) {
   if (document.getElementById("imagesCheckbox")?.checked) types.push('.jpg','.jpeg', '.png', '.tif', '.tiff')
   if (document.getElementById("pdfCheckbox")?.checked) types.push('.pdf', '.xlsx')
 
-  let sort = options.sort || null; 
+  
 
   let searchResultsElement = document.querySelector('.searchResults');
 
@@ -70,16 +70,7 @@ async function search(options = {}) {
     return;
   }
 
-  document.getElementById('dateFilterForm').addEventListener('submit', e => {
-    e.preventDefault();
-
-    let from = document.getElementById('dateFrom').value;
-    let to   = document.getElementById('DateTo').value;
-
-    search({dateFrom: from, dateTo: to});
-  });
-
-  
+ 
   // Bygg query-parametrar
   let url = `/api/files?searchTerm=${encodeURIComponent(searchTerm)}`;
 
@@ -100,13 +91,6 @@ async function search(options = {}) {
   }
   console.log('allfiles log -', allFiles)
 
-  allFiles.sort((a, b) => {
-    let dateA = new Date(a.metadata.date || 0);
-    let dateB = new Date(b.metadata.date || 0);
-    return dateB - dateA; 
-  });
-
-  
   // Börja bygga HTML för resultaten
   let html = `
     <p>You searched for "<span class="highlight">${escapeHTML(searchTerm)}</span>"...</p>
