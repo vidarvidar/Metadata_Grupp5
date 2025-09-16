@@ -55,7 +55,6 @@ button {
     position: fixed;
 }
 
-
 ul {
     list-style: none;
     position: relative;
@@ -74,7 +73,6 @@ ul li a {
     transition: .5s;
 }
 
-
 ul li a i {
     font-size: 30px;
 }
@@ -92,8 +90,6 @@ ul li a i {
     border-radius: 8px;
     margin: 10px;
 }
-
-
 
 :root {
     --main_color: #9b8989;
@@ -119,12 +115,23 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--color_heading);
-    font-family: "DM Sans", sans-serif;
+    font-family: revert;
+    display: inline-block;
+    margin-top: 7px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #a97c7f, #cba9a9);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: blink;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgb(0 0 0 / 34%);
 }
 
 img {
-    width: 100%;
+    width: 234px;
+    float: inline-end;
 }
 
 .container {
@@ -150,8 +157,6 @@ header {
     z-index: 999;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
-
 
 header .top_header .container {
     display: flex;
@@ -198,6 +203,7 @@ header .logo {
 .search_box button:hover {
     background-color: #8a7373;
 }
+
 #filterBtn {
     height: 35px;
     padding: 0 10px;
@@ -209,6 +215,7 @@ header .logo {
     border: none;
     transition: background 0.3s;
 }
+
 /* SELECT BOX */
 .select_box select {
     height: 45px;
@@ -294,7 +301,7 @@ header .logo {
 /* HOMEPAGE */
 .homepage {
     margin-left: 260px;
-    padding: 176px 500px 500px 48px;
+    padding: 157px 23px 500px 26px;
     flex: 1;
     background-color: aliceblue;
 }
@@ -309,17 +316,34 @@ header .logo {
     margin: auto;
 }
 
+/* RESULTATBOXAR */
 #results {
     display: grid;
     gap: 1rem;
     margin-top: 10px;
+    justify-content: center;
+    /* centrera boxarna */
 }
 
 .result-card {
-    padding: 10px;
+    background-color: #f9f9f9;
     border: 1px solid #ddd;
-    border-radius: 10px;
-    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 500px;
+    /* maxbredd för boxen */
+    width: 100%;
+    /* flexibel bredd på små skärmar */
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .result-head {
@@ -331,6 +355,7 @@ header .logo {
 
 .result-name {
     font-size: 1rem;
+    font-weight: 600;
 }
 
 .result-type {
@@ -348,11 +373,29 @@ header .logo {
     text-decoration: underline;
     color: #d4d700;
 }
+
+
 .metadata {
-  font-size: small;
-  text-wrap: balance;
-  
+    font-size: 0.9rem;
+    line-height: 1.4;
+    background: #cfc7c7;
+    padding: 18px 9px;
+    border-radius: 18px;
 }
+
+/* RADBRYTNING */
+.result-name,
+.result-type,
+.metadata,
+#empty-hint,
+p,
+h2,
+h3 {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
 /* EMPTY HINT */
 #empty-hint {
     opacity: 0.7;
@@ -385,78 +428,78 @@ header .logo {
 }
 
 img {
-  width: 200px;      /* Set image width */
-  float: right;
+    width: 200px;
+    /* Set image width */
+    float: right;
 }
 
 .highlight {
-  background-color: rgb(238, 255, 0);
-  font-weight: bold;
+    background-color: rgb(238, 255, 0);
+    font-weight: bold;
 }
 
 .date-filter {
-  margin-top: 25px;
-  padding: 18px 15px;
-  background: #2a2a40;
-  border-radius: 14px;
-  box-shadow: inset 0 0 4px rgba(255,255,255,0.05);
+    margin-top: 25px;
+    padding: 18px 15px;
+    background: #2a2a40;
+    border-radius: 14px;
+    box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.05);
 }
 
 .date-filter h3 {
-  font-size: 1rem;
-  color: #a4a4b8;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  font-weight: 600;
+    font-size: 1rem;
+    color: #a4a4b8;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
 }
 
 #dateFilterForm {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 #dateFilterForm label {
-  font-size: 0.9rem;
-  color: #ccc;
-  margin-bottom: 4px;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 4px;
 }
 
 #dateFilterForm input[type="date"] {
-  padding: 8px 10px;
-  background: #3a3a55;
-  border: 1px solid #555;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 0.9rem;
-  outline: none;
-  transition: border 0.2s ease;
+    padding: 8px 10px;
+    background: #3a3a55;
+    border: 1px solid #555;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border 0.2s ease;
 }
 
 #dateFilterForm input[type="date"]:focus {
-  border: 1px solid #4cafef;
-  background: #41415f;
+    border: 1px solid #4cafef;
+    background: #41415f;
 }
 
-/* === KNAPP === */
 #dateFilterForm button {
-  margin-top: 10px;
-  padding: 10px 12px;
-  background: #4cafef;
-  color: #fff;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background 0.25s ease, transform 0.1s ease;
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: #4cafef;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.1s ease;
 }
 
 #dateFilterForm button:hover {
-  background: #3b9dde;
+    background: #3b9dde;
 }
 
 #dateFilterForm button:active {
-  transform: scale(0.97);
+    transform: scale(0.97);
 }
