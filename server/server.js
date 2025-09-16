@@ -40,7 +40,7 @@ async function query(sql, listOfValues) {
 
 
 app.get('/api/files', async (request, response) => {
-  let { searchTerm, filetype, sort, dateFrom, dateTo } = request.query;
+  let { searchTerm, filetype } = request.query;
 
   let sql = `SELECT * FROM files WHERE 1=1`;
   let params = [];
@@ -125,12 +125,23 @@ app.get('/api/music/:searchTerm', async (request, response) => {
   // Send the result as a JSON response
   response.json(result);
 });
+
 app.get('/api/filetypes', async (request, response) => {
   let result = await query(`
       SELECT DISTINCT filetype FROM files;
   `,);
   // Send the result as a JSON response
   
+  response.json(result);
+});
+
+app.get('/api/genres', async (request, response) => {
+  let result = await query(`
+      SELECT DISTINCT metadata -> '$.genre' as Genres
+      FROM files
+      WHERE metadata -> '$.genre' IS NOT NULL
+  `,);
+ 
   response.json(result);
 });
 

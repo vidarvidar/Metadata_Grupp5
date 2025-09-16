@@ -77,8 +77,9 @@ async function search(options = {}) {
 
   // Om audio är valt → hämta bara mp3
   if (types.length > 0) {
-    url += `&filetype=${types.join(',')}`
-  };
+    url += `&filetype=${types.join(',')}`;
+  if (sort) url += `&sort=${encodeURIComponent(sort)}`;
+  }
 
   
   // Hämta från API
@@ -218,7 +219,8 @@ async function search(options = {}) {
             </section>
           `  
       }
-  }  
+  };
+    
   searchResultsElement.innerHTML = html;
 
   const filtersElement = document.querySelector(".filters")
@@ -231,9 +233,10 @@ async function search(options = {}) {
 
   let filterRes = await fetch('/api/filetypes');
   let filterTypes = await filterRes.json();
+  console.log('filter', filterTypes)
   let genreRes = await fetch('/api/genres');
   let genres = await genreRes.json();
-
+  console.log('genre', genres)
   // Generate checkboxes for filetypes and genres
   for (let filterType of filterTypes) {
 
@@ -241,6 +244,7 @@ async function search(options = {}) {
       <label><input name="filterBox" type="checkbox" value="${filterType.filetype}" id="${filterType.filetype}Checkbox">${filterType.filetype}</label>
     `
   }
+
   filterHtml += `
     <br>
     <h3>Music Genres:</h3>
