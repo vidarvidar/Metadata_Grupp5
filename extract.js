@@ -60,16 +60,27 @@ for (let file of files) {
     }
   }
   if (audio_filetype.includes(path.parse(file).ext.toLowerCase())) {
-    
+  
     let raw = await musicMetadata.parseFile('client/Data/' + file);
     delete raw.native;
     delete raw.quality;
-    let metadata = JSON.stringify(raw);
-    console.log(file) 
-    try {
-      let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
-    }
-    catch(err) {console.log(err)}
+    delete raw.common.picture;
+    // let metadata = JSON.stringify(raw.common);
+    console.log(file);
+    if (raw.common) {
+      let metadata = JSON.stringify(raw.common)
+      try {
+        let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
+      }
+      catch(err) {console.log(err)}
+      };
+    if (!raw.common) {
+      let metadata = JSON.stringify(raw)
+      try {
+        let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
+      }
+      catch(err) {console.log(err)}
+      };
     }
   if (path.parse(file).ext == '.pdf') {
 
@@ -111,7 +122,7 @@ for (let file of files) {
     }
     catch(err) {console.log(err)}
     }
-    
-} 
+  };
+  
 await db.end();
 
