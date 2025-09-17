@@ -117,8 +117,9 @@ h5,
 h6 {
     font-family: revert;
     display: inline-block;
-    margin-top: 7px;
-    padding: 12px 22px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 8px 16px;
     border-radius: 10px;
     background: linear-gradient(135deg, #a97c7f, #cba9a9);
     color: #fff;
@@ -126,7 +127,6 @@ h6 {
     text-decoration: blink;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 3px 8px rgb(0 0 0 / 34%);
 }
 
 img {
@@ -513,7 +513,7 @@ date-filter {
 .filters label {
   display: block;
   font-size: 0.9rem;
-  color: #ccc;
+  color: #ffffff;
   margin-bottom: 0.1px;
 }
 

@@ -89,13 +89,24 @@ for (let file of files) {
     let raw_metadata = await PdfParse(raw)
     delete raw_metadata.text;
 
-    let metadata = JSON.stringify(raw_metadata)
-    console.log(file)
-    try {
-     let result = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?, ?,?, ?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
+    // let metadata = JSON.stringify(raw_metadata)
+    console.log(file);
+    if (raw_metadata.info) {
+      let metadata = JSON.stringify(raw_metadata.info);
+      try {
+      let result = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?, ?,?, ?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
+      }
+      catch(err) {console.log(err)}
+      }
+    if (!raw_metadata.info) {
+      let metadata = JSON.stringify(raw_metadata)
+      try {
+      let result = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?, ?,?, ?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
+      }
+      catch(err) {console.log(err)}
+      }
+  
     }
-    catch(err) {console.log(err)}
-  }
   if (path.parse(file).ext == '.xlsx') {
 
     let raw = await xlsx.readFile('client/Data/' + file)
@@ -123,6 +134,6 @@ for (let file of files) {
     catch(err) {console.log(err)}
     }
   };
-  
+
 await db.end();
 
