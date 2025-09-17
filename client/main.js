@@ -187,6 +187,9 @@ async function search(options = {}) {
               <p>Publication Date: ${file.metadata.publication_date}
               <p>Keywords: ${file.metadata.keywords}</p>
               <p>Page Count: ${file.metadata.page_count} sec</p>
+              <object data=${url} type="application/pdf" width="100%" height="500px">
+                <p>Unable to display PDF file. <a href=${url}>Download</a> instead.</p>
+            </object>
             </li>
             <div class="metadata">
               <p>Metadata: ${highlightedMetadata}</p>
