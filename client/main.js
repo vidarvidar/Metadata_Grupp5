@@ -40,10 +40,11 @@ function highlightSafe(rawMeta, searchTerm) {
   let rx = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
   return text.replace(rx, '<span class="highlight">$1</span>');
 }
-
+// Toggles dropdown list on front page
 async function ToggleDropdown() {
   document.getElementById("filetypeDropdown").classList.toggle("show");
 };
+
 // Searches database on api/files endpoint
 async function search(options = {}) {
   // Hämta sökord från formfältet
@@ -70,8 +71,6 @@ async function search(options = {}) {
     return;
   }
 
-
-  
   // Bygg query-parametrar
   let url = `/api/files?searchTerm=${encodeURIComponent(searchTerm)}`;
 
@@ -225,7 +224,7 @@ async function search(options = {}) {
   };
 
   searchResultsElement.innerHTML = html;
-
+  // The start of secondary filtration
   const filtersElement = document.querySelector(".filters")
 
   let filterHtml = `
@@ -265,7 +264,7 @@ async function search(options = {}) {
   `
   filtersElement.innerHTML = filterHtml
   
-
+  // What happens when the filter button is pressed
   document.getElementById("secondaryFilter").addEventListener('submit', (e) => {
     e.preventDefault();
     // collects all checked boxes and pushes values into a list through which allFiles is filtered
@@ -276,6 +275,9 @@ async function search(options = {}) {
       boxValues.push(box.value)
     };
     console.log("boxValues", boxValues)
+    // Filters all files previously fetched from api based on checked boxes. In this version its is on OR filter, meaning
+    // it will display files if they fulfill either the filetype or the genre criteria. Perhaps could be and AND filter to only
+    // get files which fulfill both
     const filterFiles = allFiles.filter((file) => boxValues.includes(file.filetype) || boxValues.includes(file.metadata.genre))
     console.log('filter result', filterFiles)
 
@@ -283,7 +285,8 @@ async function search(options = {}) {
     <h2>Filtered Results: ${filterFiles.length} files</h2>
     
     `;
-
+    // Generates the html for filtered files, is a repeat of the html builder in the main search. 
+    // Probably should be a seperate function
     for (let file of filterFiles) {
       let filename = file.filename ?? file.fileName ?? 'Unknown filename';
       let filetype = (file.filetype ?? '').toLowerCase();

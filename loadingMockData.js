@@ -1,12 +1,11 @@
-// import file system module
-// - used to read file names from the music folder
+// This scripts uploads mock data from 3 json files into the database, they include mp3, video and pdf files.
+// Mockdata was generated using mockaroo
 import fs from 'fs';
-// import the musicMetadata
-// npm module - used to read metadata from music files
+
 import musicMetadata from 'music-metadata';
-// Import the database driver
+
 import mysql from 'mysql2/promise';
-// import dotenv from 'dotenv';
+
 import path from 'path';
 import dotenv from 'dotenv'
 dotenv.config()

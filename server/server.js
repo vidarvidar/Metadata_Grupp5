@@ -38,7 +38,7 @@ async function query(sql, listOfValues) {
   return result[0]; // result[0] contains the rows
 }
 
-
+// Main search endpoint that reads the params in the request and builds a MySQL query to send to the DB
 app.get('/api/files', async (request, response) => {
   let { searchTerm, filetype } = request.query;
 
@@ -62,22 +62,19 @@ app.get('/api/files', async (request, response) => {
   let result = await query(sql, params);
   response.json(result);
 });
-// REST API route: Get all people from the database
-// When a GET request is made to /api/people, return all people as JSON
+
+
+// Currently unused endpoint for fetching all files 
 app.get('/api/files', async (request, response) => {
-  // Query the database for all people
   let result = await query(`
     SELECT *
     FROM files
   `);
-  // Send the result as a JSON response
   response.json(result);
 });
 
-// REST API route: Get all people from the database
-// When a GET request is made to /api/people, return all people as JSON
+// Currently unused endpoint for fetching all music files
 app.get('/api/music', async (request, response) => {
-  // Query the database for all people
   let audio_filetype = ['.mp3','.WAV','.aac','.ogg','.wma', '.flac', '.aiff', '.aif']
 
   let result = await query(`
@@ -89,31 +86,29 @@ app.get('/api/music', async (request, response) => {
   response.json(result);
 });
 
-// REST API route: Search for people by name or hobby
-// When a GET request is made to /api/people/:searchTerm, search the database
-app.get('/api/files/:searchTerm', async (request, response) => {
-  // Get the search term from the URL and add % for SQL LIKE (partial match)
-  let searchTerm = `%${request.params.searchTerm}%`;
-  // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
-  let result = await query(`
-    SELECT *
-    FROM files
-    WHERE 
-      LOWER(fileName) LIKE LOWER(?) OR
-      LOWER(filetype) LIKE LOWER(?) OR
-      LOWER(metadata) LIKE LOWER(?)
-  `, [searchTerm, searchTerm, searchTerm]);
-  // Send the result as a JSON response
-  response.json(result);
-});
+// // REST API route: Search for people by name or hobby
+// // When a GET request is made to /api/people/:searchTerm, search the database
+// app.get('/api/files/:searchTerm', async (request, response) => {
+//   // Get the search term from the URL and add % for SQL LIKE (partial match)
+//   let searchTerm = `%${request.params.searchTerm}%`;
+//   // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
+//   let result = await query(`
+//     SELECT *
+//     FROM files
+//     WHERE 
+//       LOWER(fileName) LIKE LOWER(?) OR
+//       LOWER(filetype) LIKE LOWER(?) OR
+//       LOWER(metadata) LIKE LOWER(?)
+//   `, [searchTerm, searchTerm, searchTerm]);
+//   // Send the result as a JSON response
+//   response.json(result);
+// });
 
-// REST API route: Search for people by name or hobby
-// When a GET request is made to /api/people/:searchTerm, search the database
+// Currently unused endpoint for fetching select music files
 app.get('/api/music/:searchTerm', async (request, response) => {
   // Get the search term from the URL and add % for SQL LIKE (partial match)
   let searchTerm = `%${request.params.searchTerm}%`;
   let audio_filetype = ['.mp3', '.WAV','.aac','.ogg','.wma', '.flac', '.aiff', '.aif']
-  // Query the database for people where firstname, lastname, or hobby matches the search term (case-insensitive)
   let result = await query(`
     SELECT *
     FROM files
@@ -126,6 +121,7 @@ app.get('/api/music/:searchTerm', async (request, response) => {
   response.json(result);
 });
 
+//Endpoint that fetches all distinct filetypes, used for generating filters for search engine
 app.get('/api/filetypes', async (request, response) => {
   let result = await query(`
       SELECT DISTINCT filetype FROM files;
@@ -135,6 +131,7 @@ app.get('/api/filetypes', async (request, response) => {
   response.json(result);
 });
 
+// Fetches all distinct music genres, used for filtering in search
 app.get('/api/genres', async (request, response) => {
   let result = await query(`
       SELECT DISTINCT metadata -> '$.genre' as Genres
@@ -145,6 +142,7 @@ app.get('/api/genres', async (request, response) => {
   response.json(result);
 });
 
+// Currentyl unused endpoint that fetches unique keys - could be used to generate extensive filters for search
 app.get('/api/metadata', async (request, response) => {
   let result = await query(`
     SELECT DISTINCT (JSON_KEYS(metadata)) 'Keys'

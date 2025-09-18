@@ -1,6 +1,6 @@
-// import exifr - a metadata extractor for images
+
 import exifr from 'exifr';
-// import fs (file system) - a built in module in Node.js
+
 import fs from 'fs';
 import mysql from 'mysql2/promise';
 import 'dotenv/config';
@@ -25,8 +25,6 @@ async function query(sql){
    let result = await db.execute(sql);
    return result[0];
 }
-// let result = await query('SELECT * FROM test')
-// console.log(result)
 
 // give me a list of all files in the image folder
 let files = fs.readdirSync('client/Data/');
@@ -38,9 +36,8 @@ let files = fs.readdirSync('client/Data/');
 
 // Loop through the images and extract the metadata
 for (let file of files) {
-  // let metadata_list = []
-  // Only for files ending with .jpg
-  // slice(-4) get the last 4 letters from the image name
+  // Create lists of file extensions that we use to sort en specify which metadata parser to use for each file
+  // Individual metadata parsers can sometimes handle additional extensions but these are the most common.
   let audio_filetype = ['.mp3', '.WAV','.aac','.ogg','.wma', '.flac', '.aiff', '.aif']
   let image_filetype = ['.jpg','.png', '.tif', '.jpeg']
   let video_filetype = ['.mp4', '.avi', '.mkv', '.mov']
@@ -52,7 +49,7 @@ for (let file of files) {
     let metadata = JSON.stringify(raw);
     console.log(file)
     try {
-    // Uploads row by row into database with local storage path as url
+    // Uploads row by row into database with local storage path as url, stores metadata as JSON in MySQL column
       let [result] = await db.execute('INSERT INTO files (fileName, filetype, url, metadata) VALUES (?,?,?,?)', [file, path.parse(file).ext, 'Data/' + file, metadata]);
     }
     catch(err) {
@@ -67,6 +64,8 @@ for (let file of files) {
     delete raw.common.picture;
     // let metadata = JSON.stringify(raw.common);
     console.log(file);
+    // A good chunk of our mp3 files have metadata located within an object called common, these if statements sort and specify which
+    // part of the entire metadata we wish to store in our database
     if (raw.common) {
       let metadata = JSON.stringify(raw.common)
       try {
@@ -91,6 +90,8 @@ for (let file of files) {
 
     // let metadata = JSON.stringify(raw_metadata)
     console.log(file);
+    // Same here as for audio files, sometimes theres an object called info that has all the stuff we want and
+    // sometimes there is not and the metadata lies within the first level of the json. 
     if (raw_metadata.info) {
       let metadata = JSON.stringify(raw_metadata.info);
       try {
